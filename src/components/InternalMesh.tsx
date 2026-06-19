@@ -92,7 +92,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                                 </li>
                             ))}
                             {neighborhoods.length === 0 && (
-                                <li className="text-neutral-500 text-sm italic">Tout {config?.city || "France"} et agglomération</li>
+                                <li className="text-neutral-500 text-sm italic">Ganz {config?.city || "France"} et agglomération</li>
                             )}
                         </ul>
                     </div>

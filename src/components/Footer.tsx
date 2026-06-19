@@ -22,7 +22,7 @@ export function Footer({ config }: FooterProps) {
     const sitesByRegion = uniqueSites
         .filter(site => site.slug !== 'home' && site.slug !== 'solarexperte.ch' && site.slug !== 'www.solarexperte.ch')
         .reduce((acc, site) => {
-            const region = site.region || 'Autres';
+            const region = site.region || 'Sonstige';
             if (!acc[region]) acc[region] = [];
             acc[region].push(site);
             return acc;
@@ -74,7 +74,7 @@ export function Footer({ config }: FooterProps) {
                                             </li>
                                         ))}
                                         {neighborhoods.length === 0 && (
-                                            <li className="text-neutral-500 italic">Tout {config.city}</li>
+                                            <li className="text-neutral-500 italic">Ganz {config.city}</li>
                                         )}
                                     </>
                                 )}
@@ -176,7 +176,7 @@ export function Footer({ config }: FooterProps) {
                                 ))}
                             </ul>
 
-                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Contact</h5>
+                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Kontakt</h5>
                             <ul className="space-y-6">
                                 <li>
                                     <Link href="/contact" className="flex items-start gap-4 text-neutral-400 hover:text-white transition group text-left">
@@ -184,7 +184,7 @@ export function Footer({ config }: FooterProps) {
                                             <Mail size={20} />
                                         </div>
                                         <div>
-                                            <span className="block text-white font-bold text-lg">${config.email}</span>
+                                            <span className="block text-white font-bold text-lg">{config.email}</span>
                                         </div>
                                     </Link>
                                 </li>

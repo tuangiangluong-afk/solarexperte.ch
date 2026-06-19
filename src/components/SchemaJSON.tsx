@@ -74,7 +74,7 @@ export default function SchemaJSON({ type, site, breadcrumbItems, faqSegment }: 
         schema = {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Wärmepumpe Experte",
+            "name": "Solar Experte",
             "url": baseUrl,
             "logo": `${baseUrl}/logo.png`,
             "sameAs": [

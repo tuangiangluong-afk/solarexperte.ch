@@ -2,26 +2,26 @@ import { CityConfig } from "@/lib/db";
 
 export const NATIONAL_CONFIG: CityConfig = {
     slug: "home",
-    domain: "expertwaermepumpe.de",
-    name: "Wärmepumpe Experte",
-    city: "France",
-    phoneNumber: "01 84 80 00 00",
-    email: "contact@expertwaermepumpe.de",
+    domain: "solarexperte.ch",
+    name: "Solar Experte",
+    city: "Schweiz",
+    phoneNumber: "0800 000 000",
+    email: "kontakt@solarexperte.ch",
     heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop",
-    description: "Le réseau n°1 d'installateurs de pompes à chaleur en France. Devis gratuit, étude de rentabilité et artisans certifiés RGE.",
+    description: "Das führende Vergleichsportal für Photovoltaikanlagen in der Schweiz. Kostenlose Offerte, Rentabilitätsberechnung und zertifizierte Solar-Fachbetriebe.",
     meta: {
-        title: "Wärmepumpe Experte | Chauffage Écologique & Économies d'Énergie",
-        description: "Installation de pompes à chaleur pour particuliers partout en France. Devis gratuit sous 24h. Simulateur d'éligibilité aux aides RGE QualiPAC."
+        title: "Solar Experte | Photovoltaik & Solaranlagen Schweiz",
+        description: "Installation von Solaranlagen für Eigenheime in der ganzen Schweiz. Kostenlose Offerte in 24h. Schweizer Subventionen und zertifizierte Fachpartner."
     },
     features: [
-        "Rendement Garanti",
-        "Devis Gratuit sous 24h",
-        "Éligible MaPrimeRénov'",
-        "Artisans RGE QualiPAC"
+        "Garantierte Qualität",
+        "Kostenlose Offerte in 24h",
+        "Schweizer Förderung",
+        "Zertifizierte Fachpartner"
     ],
     pricing: {
-        base: "Sur Devis",
-        description: "Devis gratuit personnalisé selon votre chauffage actuel"
+        base: "Kostenlose Offerte",
+        description: "Individuelle Offerte basierend auf Ihrem Dach und Verbrauch"
     },
     hospitals: [],
     stations: [],

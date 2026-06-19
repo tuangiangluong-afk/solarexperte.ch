@@ -37,7 +37,7 @@ export default function MobileStickyCTA({
                 className={`flex w-full items-center justify-center gap-2 bg-gradient-to-r ${gradientClass} text-white rounded-xl py-4 font-extrabold shadow-xl transition active:scale-95`}
             >
                 <Zap size={20} fill="currentColor" />
-                <span>Devis Gratuit en 24h</span>
+                <span>Kostenlose Offerte</span>
             </a>
         </div>
     );

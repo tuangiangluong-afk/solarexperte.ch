@@ -7,7 +7,7 @@ export default function SimulatorWidget() {
                 Comparez les offres
             </h3>
             <p className="text-sm text-slate-600 mb-6">
-                Recevez jusqu'à 3 devis gratuits d'installateurs qualifiés RGE.
+                Recevez jusqu'à 3 kostenlose offertes d'installateurs qualifiés RGE.
             </p>
 
             {/* Mini Formulaire visuel */}

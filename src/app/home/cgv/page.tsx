@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Conditions Générales de Vente - Wärmepumpe Experte",
-    description: "Consultez les CGV du réseau Wärmepumpe Experte : mise en relation avec des installateurs certifiés RGE QualiPAC, devis gratuits.",
+    description: "Consultez les CGV du réseau Wärmepumpe Experte : mise en relation avec des installateurs certifiés RGE QualiPAC, kostenlose offertes.",
 };
 
 export default function CGV() {

@@ -90,13 +90,13 @@ export default function ChargerComparison({ themeColor = "rose", onCompareClick 
                         <div
                             key={index}
                             className={`relative flex flex-col gap-6 rounded-xl p-6 transition-all duration-300 hover:shadow-xl ${pac.popular
-                                ? "border-2 border-rose-500 bg-white shadow-lg ring-1 ring-rose-500/20"
+                                ? "border-2 border-amber-500 bg-white shadow-lg ring-1 ring-amber-500/20"
                                 : "border border-slate-200 bg-slate-50 hover:bg-white"
                                 }`}
                         >
                             {/* Popular Badge */}
                             {pac.popular && (
-                                <div className="absolute top-4 right-4 bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-lg">
+                                <div className="absolute top-4 right-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-lg">
                                     POPULAIRE
                                 </div>
                             )}
@@ -122,7 +122,7 @@ export default function ChargerComparison({ themeColor = "rose", onCompareClick 
                             <div className="flex flex-col gap-3 border-t border-slate-200 pt-4">
                                 {pac.specs.map((spec, specIndex) => (
                                     <div key={specIndex} className="flex items-center gap-3 text-sm text-slate-700">
-                                        <span className="text-rose-600">{spec.icon}</span>
+                                        <span className="text-amber-600">{spec.icon}</span>
                                         <span className="font-medium">{spec.label}</span>
                                     </div>
                                 ))}
@@ -132,7 +132,7 @@ export default function ChargerComparison({ themeColor = "rose", onCompareClick 
                             <button
                                 onClick={scrollToForm}
                                 className={`mt-auto w-full font-bold h-10 rounded-lg transition-colors ${pac.popular
-                                    ? "bg-rose-600 hover:bg-rose-700 text-white"
+                                    ? "bg-amber-600 hover:bg-amber-700 text-white"
                                     : "bg-slate-200 hover:bg-slate-300 text-slate-900"
                                     }`}
                             >

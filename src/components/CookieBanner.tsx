@@ -35,10 +35,10 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
     if (!showBanner) return null;
 
     return (
-        <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-neutral-900/95 backdrop-blur-md border border-rose-500/30 rounded-2xl p-6 shadow-2xl shadow-rose-500/10 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-neutral-900/95 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 shadow-2xl shadow-amber-500/10 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex items-start gap-4">
-                <div className="p-2 rounded-lg shrink-0 bg-rose-500/10">
-                    <Cookie className="w-6 h-6 text-rose-400" />
+                <div className="p-2 rounded-lg shrink-0 bg-amber-500/10">
+                    <Cookie className="w-6 h-6 text-amber-400" />
                 </div>
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-white mb-2">
@@ -47,7 +47,7 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
                     <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
                         Nous utilisons des cookies pour améliorer votre expérience sur le site de {cityName}. Pas de pistage intrusif, promis.
                         {' '}
-                        <Link href="/mentions-legales" className="underline text-rose-400 hover:text-rose-300 transition">
+                        <Link href="/mentions-legales" className="underline text-amber-400 hover:text-amber-300 transition">
                             En savoir plus
                         </Link>
                     </p>
@@ -55,7 +55,7 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
                     <div className="flex flex-col gap-2">
                         <button
                             onClick={acceptAll}
-                            className="w-full py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg transition-colors"
+                            className="w-full py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg transition-colors"
                         >
                             Tout accepter
                         </button>

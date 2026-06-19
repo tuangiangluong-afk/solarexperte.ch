@@ -13,7 +13,7 @@ export default function RealizationsGrid() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">
-                        Dernières installations en <span className="text-rose-500">Île-de-France</span>
+                        Dernières installations en <span className="text-amber-500">Île-de-France</span>
                     </h2>
                     <p className="text-neutral-400">
                         Qualité artisanale, finitions soignées. Nos chantiers parlent pour nous.
@@ -37,8 +37,8 @@ export default function RealizationsGrid() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
                             <div className="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                                <div className="text-rose-400 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+                                <div className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
                                     {proj.city}
                                 </div>
                                 <div className="text-2xl font-bold mb-1">{proj.desc}</div>

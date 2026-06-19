@@ -1,5 +1,5 @@
 // ========================================
-// NATIONAL TARGETS - LOCALIZED ZONES
+// NATIONAL TARGETS - LOCALIZED ZONES (CH SOLAR)
 // ========================================
 
 export interface NationalTarget {
@@ -15,196 +15,16 @@ export interface NationalTarget {
 }
 
 export const NATIONAL_TARGETS: NationalTarget[] = [
-    {
-        "slug": "berlin",
-        "name": "Berlin",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 52.52,
-            "lng": 13.405
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "10115",
-        "tier": "BIG5",
-        "heroImage": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "hamburg",
-        "name": "Hamburg",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 53.5511,
-            "lng": 9.9937
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "20095",
-        "tier": "BIG5",
-        "heroImage": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "muenchen",
-        "name": "München",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 48.1351,
-            "lng": 11.582
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "80331",
-        "tier": "BIG5",
-        "heroImage": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "koeln",
-        "name": "Köln",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 50.9375,
-            "lng": 6.9603
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "50667",
-        "tier": "GOLDEN",
-        "heroImage": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "frankfurt",
-        "name": "Frankfurt",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 50.1109,
-            "lng": 8.6821
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "60311",
-        "tier": "GOLDEN",
-        "heroImage": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "stuttgart",
-        "name": "Stuttgart",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 48.7758,
-            "lng": 9.1829
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "70173",
-        "tier": "GOLDEN",
-        "heroImage": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "duesseldorf",
-        "name": "Düsseldorf",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 51.2277,
-            "lng": 6.7735
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "40210",
-        "tier": "STRATEGIC",
-        "heroImage": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "dortmund",
-        "name": "Dortmund",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 51.5136,
-            "lng": 7.4653
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "44135",
-        "tier": "STRATEGIC",
-        "heroImage": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "essen",
-        "name": "Essen",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 51.4556,
-            "lng": 7.0116
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "45127",
-        "tier": "STRATEGIC",
-        "heroImage": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop"
-    },
-    {
-        "slug": "leipzig",
-        "name": "Leipzig",
-        "heroTitle": "Wärmepumpe",
-        "geo": {
-            "lat": 51.3397,
-            "lng": 12.3731
-        },
-        "price_start": 8500,
-        "top_places": [
-            "Centro",
-            "Residencial",
-            "Norte",
-            "Sur"
-        ],
-        "zip": "04109",
-        "tier": "STRATEGIC",
-        "heroImage": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop"
-    }
+    { slug: "zuerich", name: "Zürich", heroTitle: "Solaranlage", geo: { lat: 47.3769, lng: 8.5417 }, price_start: 18000, top_places: ["Altstadt", "Riesbach", "Schwamendingen", "Oerlikon"], zip: "8000", tier: "BIG5" },
+    { slug: "bern", name: "Bern", heroTitle: "Solaranlage", geo: { lat: 46.9480, lng: 7.4474 }, price_start: 17500, top_places: ["Kirchenfeld", "Länggasse", "Breitenrain", "Bümpliz"], zip: "3000", tier: "BIG5" },
+    { slug: "basel", name: "Basel", heroTitle: "Solaranlage", geo: { lat: 47.5596, lng: 7.5886 }, price_start: 18000, top_places: ["Gundeldingen", "St. Alban", "Bachletten", "Clara"], zip: "4000", tier: "BIG5" },
+    { slug: "luzern", name: "Luzern", heroTitle: "Solaranlage", geo: { lat: 47.0502, lng: 8.3093 }, price_start: 17000, top_places: ["Littau", "Tribschen", "Obergrund", "Wesemlin"], zip: "6000", tier: "GOLDEN" },
+    { slug: "winterthur", name: "Winterthur", heroTitle: "Solaranlage", geo: { lat: 47.5022, lng: 8.7294 }, price_start: 17500, top_places: ["Stadt", "Mattenbach", "Seen", "Wülflingen"], zip: "8400", tier: "GOLDEN" },
+    { slug: "st-gallen", name: "St. Gallen", heroTitle: "Solaranlage", geo: { lat: 47.4245, lng: 9.3767 }, price_start: 17000, top_places: ["Rotmonten", "Lachen", "Riethüsli", "St. Georgen"], zip: "9000", tier: "STRATEGIC" },
+    { slug: "zug", name: "Zug", heroTitle: "Solaranlage", geo: { lat: 47.1662, lng: 8.5155 }, price_start: 19000, top_places: ["Zug West", "Zug Ost", "Oberwil", "Guthirt"], zip: "6300", tier: "STRATEGIC" },
+    { slug: "aarau", name: "Aarau", heroTitle: "Solaranlage", geo: { lat: 47.3925, lng: 8.0442 }, price_start: 17000, top_places: ["Aarau", "Telli", "Zelgli", "Schachen"], zip: "5000", tier: "STRATEGIC" },
+    { slug: "schaffhausen", name: "Schaffhausen", heroTitle: "Solaranlage", geo: { lat: 47.6973, lng: 8.6349 }, price_start: 17000, top_places: ["Herblingen", "Breite", "Niklausen", "Buchthalen"], zip: "8200", tier: "STRATEGIC" },
+    { slug: "chur", name: "Chur", heroTitle: "Solaranlage", geo: { lat: 46.8508, lng: 9.5320 }, price_start: 16500, top_places: ["Altstadt", "Rheinfels", "Lürlibad", "Masans"], zip: "7000", tier: "STRATEGIC" }
 ];
 
 export function getTargetBySlug(slug: string): NationalTarget | undefined {
@@ -217,26 +37,26 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
     const target = NATIONAL_TARGETS.find(t => t.slug === slug);
     if (!target) return undefined;
 
-    const priceDisplay = "€" + target.price_start + (target.price_start < 500 ? "/m²" : "");
+    const priceDisplay = target.price_start + " CHF";
     const priceDesc = "Kostenloses Angebot";
 
     return {
         slug: target.slug,
         city: target.name,
         name: `${target.heroTitle} ${target.name}`,
-        domain: `${target.slug}.localhost`, // rewrite target
+        domain: `${target.slug}.solarexperte.ch`, // rewrite target
         heroImage: target.heroImage || "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop",
         postalCode: target.zip,
-        department: target.zip.substring(0, 2),
-        region: "Deutschland",
-        description: `${target.heroTitle} ${target.name} (${target.zip}).`,
+        department: "CH",
+        region: "Schweiz",
+        description: `${target.heroTitle} in ${target.name} (${target.zip}).`,
         geo: target.geo,
         features: [
-            "BAFA Förderung",
-            "Rendimiento Garanti",
-            "Certificación RGE/FIDE",
-            "Garantía total",
-            "Estudio Gratis"
+            "Pronovo Förderung",
+            "Schweizer Qualität",
+            "Zertifizierte Fachbetriebe",
+            "Garantierte Leistung",
+            "Kostenlose Analyse"
         ],
         stations: [],
         hospitals: [],
@@ -252,13 +72,13 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
             description: priceDesc,
             km: 0
         },
-        phoneNumber: "01 84 80 00 00",
-        email: "contact@expertwaermepumpe.de",
+        phoneNumber: "044 500 00 00",
+        email: "kontakt@solarexperte.ch",
         type: "PARTNER",
         targetType: "MIXED",
         meta: {
             title: `${target.heroTitle} ${target.name} | ${priceDisplay}`,
-            description: `${target.heroTitle} ${target.name} ${target.zip}.`
+            description: `Photovoltaik in ${target.name} (${target.zip}). Sichern Sie sich kantonale Fördergelder und die Pronovo Einmalvergütung.`
         }
     };
 }

@@ -482,7 +482,7 @@ export default function GuidesClient({ initialPosts }: { initialPosts: BlogPost[
                                                     }
                                                 }}
                                                 title={post.status === 'published' ? "Passer en brouillon" : "Publier"}
-                                                className={`p-1.5 rounded transition ${post.status === 'published' ? "text-orange-500 hover:text-orange-600 hover:bg-orange-50" : "text-green-600 hover:text-green-700 hover:bg-green-50"}`}
+                                                className={`p-1.5 rounded transition ${post.status === 'published' ? "text-amber-500 hover:text-amber-600 hover:bg-amber-50" : "text-green-600 hover:text-green-700 hover:bg-green-50"}`}
                                             >
                                                 {post.status === 'published' ? <EyeOff size={18} /> : <Upload size={18} />}
                                             </button>

@@ -1,20 +1,13 @@
 import Link from "next/link";
-import { Flame } from "lucide-react";
+import { Sun } from "lucide-react";
 
 interface LogoProps {
-    /** City name for satellite sites, null for hub */
+    themeColor?: string;
     city?: string | null;
-    /** Is this the main hub (expertwaermepumpe.de)? */
     isHub?: boolean;
-    /** Size variant */
     size?: "sm" | "md" | "lg";
-    /** Theme variant */
     variant?: "default" | "light";
-    /** Theme color */
-    themeColor?: 'blue' | 'emerald' | 'amber' | 'purple' | 'gold' | 'rose';
-    /** Additional className */
     className?: string;
-    /** Custom URL override */
     customLink?: string;
 }
 
@@ -23,7 +16,6 @@ export default function Logo({
     isHub = false,
     size = "md",
     variant = "default",
-    themeColor = 'rose',
     className = "",
     customLink
 }: LogoProps) {
@@ -38,40 +30,26 @@ export default function Logo({
     const colors = {
         default: {
             expert: "text-slate-900",
-            niche: "text-rose-600",
-            dot: "text-rose-500",
-            cityText: "text-rose-700"
+            niche: "text-amber-600",
+            dot: "text-amber-500",
+            cityText: "text-amber-700"
         },
         light: {
             expert: "text-white",
             niche: "text-white",
-            dot: "text-rose-300",
+            dot: "text-amber-300",
             cityText: "text-white"
         }
     }[variant];
 
-    if (isHub) {
-        return (
-            <Link href={customLink || "/"} className={`flex items-center gap-2.5 ${className}`}>
-                <div className={`flex items-center justify-center p-2 rounded-xl bg-rose-50/50 backdrop-blur-sm border border-rose-100/30 ${variant === 'light' ? 'bg-white/10 border-white/20' : ''}`}>
-                    <Flame className={variant === 'light' ? 'text-white' : 'text-rose-600'} size={s.iconSize} strokeWidth={2.2} />
-                </div>
-                <div className={`${s.text} font-bold tracking-tight leading-none`}>
-                    <span className={colors.expert}>Expert</span>
-                    <span className="ml-1 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-rose-400">Pompe à Chaleur</span>
-                    <span className={`block text-[10px] font-semibold uppercase tracking-wider text-neutral-500 ${variant === 'light' ? 'text-rose-200' : ''}`}>Chauffage & Énergie</span>
-                </div>
-            </Link>
-        );
-    }
-
     return (
         <Link href={customLink || "/"} className={`flex items-center gap-2.5 ${className}`}>
-            <div className={`flex items-center justify-center p-2 rounded-xl bg-rose-50/50 backdrop-blur-sm border border-rose-100/30 ${variant === 'light' ? 'bg-white/10 border-white/20' : ''}`}>
-                <Flame className={variant === 'light' ? 'text-white' : 'text-rose-600'} size={s.iconSize} strokeWidth={2.2} />
+            <div className={`flex items-center justify-center p-2 rounded-xl bg-amber-50/50 backdrop-blur-sm border border-amber-100/30 ${variant === 'light' ? 'bg-white/10 border-white/20' : ''}`}>
+                <Sun className={variant === 'light' ? 'text-white' : 'text-amber-600'} size={s.iconSize} strokeWidth={2.2} />
             </div>
             <div className={`${s.text} font-bold tracking-tight leading-tight`}>
-                <span className={colors.expert}>Pompe à Chaleur </span>
+                <span className={colors.expert}>Solar </span>
+                <span className={`${colors.niche} ${city ? '' : 'bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-400'}`}>Experte</span>
                 {city && (
                     <span className={`${colors.niche} block text-sm font-semibold uppercase tracking-wider`}>{city}</span>
                 )}
@@ -82,8 +60,8 @@ export default function Logo({
 
 export function LogoIcon({ size = 40, className = "" }: { size?: number; className?: string }) {
     return (
-        <div className={`flex items-center justify-center p-2 rounded-xl bg-rose-50/50 backdrop-blur-sm border border-rose-100/30 ${className}`}>
-            <Flame className="text-rose-600" size={size} strokeWidth={2.2} />
+        <div className={`flex items-center justify-center p-2 rounded-xl bg-amber-50/50 backdrop-blur-sm border border-amber-100/30 ${className}`}>
+            <Sun className="text-amber-600" size={size} strokeWidth={2.2} />
         </div>
     );
 }

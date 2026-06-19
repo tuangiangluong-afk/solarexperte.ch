@@ -1,25 +1,9 @@
-# Wärmepumpe Experte
+# Solar Experte
 
-> Nationales Netzwerk von Installateuren für Wärmepumpen (Luft-Wasser und Luft-Luft) für Privatkunden in Deutschland.
+> Schweizer Netzwerk von Photovoltaik-Installateuren für Einfamilienhäuser und KMUs.
 
 ## About
-Wärmepumpe Experte ist die Referenzplattform in Deutschland, um qualifizierte lokale Fachbetriebe zu finden. Wir bieten kostenlose Angebotsvergleiche und Beratung zu staatlichen Förderungen (BAFA, BEG).
+Die Referenzplattform für Solaranlagen in der Schweiz. Experten für Pronovo-Förderungen und Eigenverbrauch.
 
-## Key Products/Services
-- **Luft-Wasser-Wärmepumpe**: Heizungstausch und Installation von Luft-Wasser-Wärmepumpen.
-- **Luft-Luft-Wärmepumpe**: Klimaanlagen mit Heizfunktion.
-
-## Key Facts
-- Founded: 2020
-- Industry: Erneuerbare Energien, Heizungstechnik
-- Headquarters: Deutschland
-- Coverage: National
-
-## Contact
-- Website: https://expertwaermepumpe.de
-- Service: Angebotsvergleich und Fördermittelberatung.
-
-## Links
-- Sitemap: https://expertwaermepumpe.de/sitemap.xml
-- Ratgeber: https://expertwaermepumpe.de/guides
-- Simulation: https://expertwaermepumpe.de/#simulateur
+## Headquarters
+Schweiz (Switzerland)

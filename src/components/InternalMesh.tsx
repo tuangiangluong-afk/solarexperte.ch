@@ -51,7 +51,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                             ].map((service, i) => (
                                 <li key={i}>
                                     <a href="#simulateur" className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
-                                        <span className="bg-rose-500 rounded-full h-1 w-1 shrink-0"></span>
+                                        <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
                                         {service}
                                     </a>
                                 </li>
@@ -69,7 +69,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                                         href={`/ville/${city.slug}`}
                                         className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2"
                                     >
-                                        <span className="bg-rose-500 rounded-full h-1 w-1 shrink-0"></span>
+                                        <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
                                         {getVariedAnchor(city.city, i)}
                                     </Link>
                                 </li>
@@ -86,7 +86,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                             {neighborhoods.slice(0, 8).map((quartier: string, i: number) => (
                                 <li key={quartier}>
                                     <Link href={`#simulateur`} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
-                                        <span className="bg-rose-500 rounded-full h-1 w-1 shrink-0"></span>
+                                        <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
                                         {getVariedAnchor(quartier, i + 2)}
                                     </Link>
                                 </li>
@@ -111,7 +111,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href={link.href} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
-                                        <span className="bg-rose-500 rounded-full h-1 w-1 shrink-0"></span>
+                                        <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
                                         {link.label}
                                     </Link>
                                 </li>

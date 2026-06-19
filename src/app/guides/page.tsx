@@ -14,8 +14,8 @@ const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supaba
 export const revalidate = 60; // ISR 60 seconds
 
 export const metadata: Metadata = {
-    title: "Guides et Conseils Pompes à Chaleur | Wärmepumpe Experte",
-    description: "Tout comprendre sur l'installation de pompes à chaleur. Guides, conseils et astuces de nos artisans certifiés RGE QualiPAC.",
+    title: "Solar-Ratgeber & Tipps | Wärmepumpe Experte",
+    description: "Alles über Photovoltaikanlagen in der Schweiz.. Guides, conseils et astuces de nos artisans certifiés RGE QualiPAC.",
 };
 
 export default async function GuidesIndex() {
@@ -35,7 +35,7 @@ export default async function GuidesIndex() {
                 category:blog_categories(name)
             `)
             .eq('status', 'published')
-            .contains('tags', ['pac'])
+            .contains('tags', ['solar'])
             .order('published_at', { ascending: false })
         : { data: null };
 
@@ -64,17 +64,15 @@ export default async function GuidesIndex() {
     return (
         <div className="min-h-screen bg-neutral-50 font-sans text-slate-900">
             {/* Nav */}
-            <Header isHub={true} variant="default" themeColor="rose" />
+            <Header isHub={true} variant="default" themeColor="amber" />
 
             <main className="container mx-auto px-4 py-16 pt-32">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-                        Le Centre de Ressources Pompe à Chaleur
+                        Solar-Ratgeber & Informationen
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                        Guides, comparatifs et conseils d'experts pour réussir votre installation.
-                        Sans jargon, 100% utile.
-                    </p>
+                        Tipps und Vergleiche für Ihre Solaranlage in der Schweiz.</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -82,13 +80,13 @@ export default async function GuidesIndex() {
                         <Link
                             key={guide.slug}
                             href={`/guides/${guide.slug}`}
-                            className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-rose-200 transition-all duration-300 flex flex-col h-full"
+                            className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col h-full"
                         >
                             <div className="mb-4">
-                                <span className="inline-flex items-center text-xs font-bold text-rose-700 bg-rose-50 px-2 py-1 rounded-md uppercase tracking-wider mb-3">
+                                <span className="inline-flex items-center text-xs font-bold text-amber-700 bg-amber-50 px-2 py-1 rounded-md uppercase tracking-wider mb-3">
                                     {guide.category || 'Guide'}
                                 </span>
-                                <h2 className="text-xl font-bold group-hover:text-rose-600 transition-colors line-clamp-2">
+                                <h2 className="text-xl font-bold group-hover:text-amber-600 transition-colors line-clamp-2">
                                     {guide.title}
                                 </h2>
                             </div>
@@ -105,8 +103,8 @@ export default async function GuidesIndex() {
                                         </span>
                                     )}
                                 </div>
-                                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform text-rose-600 font-medium">
-                                    Lire <ArrowRight size={14} />
+                                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform text-amber-600 font-medium">
+                                    Weiterlesen <ArrowRight size={14} />
                                 </span>
                             </div>
                         </Link>

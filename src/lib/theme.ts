@@ -62,15 +62,15 @@ export const THEMES = [
     {
         name: 'rose',
         primary: 'rose',
-        text: 'text-rose-600',
+        text: 'text-amber-600',
         classes: {
-            bg: 'bg-rose-600',
-            bgHover: 'hover:bg-rose-700',
-            text: 'text-rose-600',
-            border: 'border-rose-600/30',
-            shadow: 'shadow-rose-600/20',
-            gradientFrom: 'from-rose-600',
-            gradientTo: 'to-rose-700'
+            bg: 'bg-amber-600',
+            bgHover: 'hover:bg-amber-700',
+            text: 'text-amber-600',
+            border: 'border-amber-600/30',
+            shadow: 'shadow-amber-600/20',
+            gradientFrom: 'from-amber-600',
+            gradientTo: 'to-amber-700'
         }
     },
     {
@@ -92,13 +92,13 @@ export const THEMES = [
         primary: 'orange',
         text: 'text-neutral-900',
         classes: {
-            bg: 'bg-orange-600',
-            bgHover: 'hover:bg-orange-500',
-            text: 'text-orange-800',
-            border: 'border-orange-600/30',
-            shadow: 'shadow-orange-600/20',
-            gradientFrom: 'from-orange-600',
-            gradientTo: 'to-orange-700'
+            bg: 'bg-amber-600',
+            bgHover: 'hover:bg-amber-500',
+            text: 'text-amber-800',
+            border: 'border-amber-600/30',
+            shadow: 'shadow-amber-600/20',
+            gradientFrom: 'from-amber-600',
+            gradientTo: 'to-amber-700'
         }
     },
     {

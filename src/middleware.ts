@@ -12,8 +12,8 @@ export const config = {
 export default async function middleware(req: NextRequest) {
     const url = req.nextUrl;
 
-    // Get hostname (e.g. bornerechargeparis.fr, expertwaermepumpe.de)
-    let hostname = req.headers.get("host") || "expertwaermepumpe.de";
+    // Get hostname (e.g. bornerechargeparis.fr, solarexperte.ch)
+    let hostname = req.headers.get("host") || "solarexperte.ch";
     hostname = hostname.split(":")[0]; // Remove port if present
 
     // Check if we are on the main hub
@@ -131,7 +131,7 @@ export default async function middleware(req: NextRequest) {
     // Shared routes must point back to the main hub as their canonical source
     // Local /ville and /quartier pages MUST be canonical to THEMSELVES on their own domain
     if (cleanPath.startsWith("/guides") || cleanPath.startsWith("/solutions") || cleanPath.startsWith("/service") || cleanPath.startsWith("/poi") || cleanPath.startsWith("/outils") || cleanPath.startsWith("/installation")) {
-        response.headers.set("x-irve-canonical-domain", "www.expertwaermepumpe.de");
+        response.headers.set("x-irve-canonical-domain", "www.solarexperte.ch");
     } else {
         response.headers.set("x-irve-canonical-domain", "www." + domainKey);
     }

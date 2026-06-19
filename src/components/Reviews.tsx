@@ -114,7 +114,7 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
         emerald: "text-emerald-600",
         amber: "text-amber-600",
         purple: "text-purple-600",
-        rose: "text-rose-600"
+        rose: "text-amber-600"
     };
 
     const highlightClass = themeStyles[themeColor] || themeStyles.rose;

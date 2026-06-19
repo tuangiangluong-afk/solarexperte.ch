@@ -51,26 +51,26 @@ export default async function BlogIndex() {
                                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 ) : (
-                                    <div className="w-full h-full bg-gradient-to-br from-rose-600 to-rose-400" />
+                                    <div className="w-full h-full bg-gradient-to-br from-amber-600 to-amber-400" />
                                 )}
                                 {post.category && (
-                                    <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-rose-900 text-xs font-bold px-3 py-1 rounded-full border border-rose-100">
+                                    <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-amber-900 text-xs font-bold px-3 py-1 rounded-full border border-amber-100">
                                         {post.category.name}
                                     </span>
                                 )}
                              </div>
                              <div className="p-6 flex flex-col flex-grow">
-                                <div className="flex items-center gap-2 text-xs font-semibold text-rose-600 mb-3 uppercase tracking-wider">
+                                <div className="flex items-center gap-2 text-xs font-semibold text-amber-600 mb-3 uppercase tracking-wider">
                                      <Calendar className="w-3 h-3" />
                                      {new Date(post.published_at).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
                                 </div>
-                                <h2 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-rose-600 transition-colors line-clamp-2">
+                                <h2 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-amber-600 transition-colors line-clamp-2">
                                     {post.title}
                                 </h2>
                                 <p className="text-neutral-500 text-sm line-clamp-3 mb-6 flex-grow">
                                     {post.excerpt}
                                 </p>
-                                <div className="flex items-center text-rose-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                <div className="flex items-center text-amber-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
                                     Lire l'article <ArrowRight className="w-4 h-4 ml-1" />
                                 </div>
                              </div>

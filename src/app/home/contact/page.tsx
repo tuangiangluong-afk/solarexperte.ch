@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 
 export default function HubContactPage() {
     return (
-        <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-rose-500 selection:text-white">
+        <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-amber-500 selection:text-white">
             {/* Header - White Tech Style */}
             <Header isHub={true} variant="default" themeColor="rose" />
 
@@ -15,12 +15,12 @@ export default function HubContactPage() {
                 <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
                 <div className="mx-auto max-w-4xl text-center relative z-10">
-                    <span className="inline-flex items-center rounded-full bg-rose-50 border border-rose-200 px-4 py-1.5 text-xs font-bold text-rose-700 mb-8 tracking-widest uppercase">
-                        <Zap size={12} className="mr-2 fill-rose-600" />
+                    <span className="inline-flex items-center rounded-full bg-amber-50 border border-amber-200 px-4 py-1.5 text-xs font-bold text-amber-700 mb-8 tracking-widest uppercase">
+                        <Zap size={12} className="mr-2 fill-amber-600" />
                         Service National
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 text-slate-900">
-                        Un projet de <span className="text-rose-500">pompe à chaleur</span> ?
+                        Un projet de <span className="text-amber-500">pompe à chaleur</span> ?
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
                         Particuliers, copropriétés, locaux professionnels.
@@ -34,28 +34,28 @@ export default function HubContactPage() {
                 <div className="mx-auto max-w-6xl">
                     <div className="grid md:grid-cols-3 gap-8 mb-16 -mt-8">
                         {/* Card 1: Commercial */}
-                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-rose-200 transition text-center group">
-                            <div className="mx-auto w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mb-6 text-rose-600 group-hover:scale-110 transition duration-300">
+                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-amber-200 transition text-center group">
+                            <div className="mx-auto w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-amber-600 group-hover:scale-110 transition duration-300">
                                 <Phone size={28} />
                             </div>
                             <h3 className="font-bold text-slate-900 text-lg mb-2">Service Commercial</h3>
                             <p className="text-slate-500 text-sm mb-4">Lundi - Vendredi, 9h-18h</p>
-                            <span className="text-lg font-bold text-rose-600">Via le formulaire ci-dessous</span>
+                            <span className="text-lg font-bold text-amber-600">Via le formulaire ci-dessous</span>
                         </div>
 
                         {/* Card 2: Email */}
-                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-rose-200 transition text-center group">
-                            <div className="mx-auto w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mb-6 text-rose-600 group-hover:scale-110 transition duration-300">
+                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-amber-200 transition text-center group">
+                            <div className="mx-auto w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-amber-600 group-hover:scale-110 transition duration-300">
                                 <Mail size={28} />
                             </div>
                             <h3 className="font-bold text-slate-900 text-lg mb-2">Support & Partenaires</h3>
                             <p className="text-slate-500 text-sm mb-4">Réponse sous 24h ouvrées</p>
-                            <span className="font-bold text-rose-600">Via le formulaire ci-dessous</span>
+                            <span className="font-bold text-amber-600">Via le formulaire ci-dessous</span>
                         </div>
 
                         {/* Card 3: Siege */}
-                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-rose-200 transition text-center group">
-                            <div className="mx-auto w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mb-6 text-rose-600 group-hover:scale-110 transition duration-300">
+                        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-amber-200 transition text-center group">
+                            <div className="mx-auto w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-amber-600 group-hover:scale-110 transition duration-300">
                                 <MapPin size={28} />
                             </div>
                             <h3 className="font-bold text-slate-900 text-lg mb-2">Siège Social</h3>
@@ -84,10 +84,10 @@ export default function HubContactPage() {
                                 </ul>
                             </div>
 
-                            <div className="p-6 bg-rose-50 rounded-2xl border border-rose-100">
-                                <h4 className="font-bold text-rose-900 mb-2">Vous êtes installateur ?</h4>
-                                <p className="text-sm text-rose-700 mb-4">Rejoignez notre réseau de professionnels RGE QualiPAC sur toute la France.</p>
-                                <Link href="#form" className="text-sm font-bold text-rose-600 hover:underline flex items-center gap-1">
+                            <div className="p-6 bg-amber-50 rounded-2xl border border-amber-100">
+                                <h4 className="font-bold text-amber-900 mb-2">Vous êtes installateur ?</h4>
+                                <p className="text-sm text-amber-700 mb-4">Rejoignez notre réseau de professionnels RGE QualiPAC sur toute la France.</p>
+                                <Link href="#form" className="text-sm font-bold text-amber-600 hover:underline flex items-center gap-1">
                                     Devenir partenaire <ArrowLeft className="rotate-180" size={14} />
                                 </Link>
                             </div>

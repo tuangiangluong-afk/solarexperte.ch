@@ -32,12 +32,12 @@ export function Footer({ config }: FooterProps) {
     // Varied Anchor Logic (Local SEO)
     const getGlobalDiverseAnchor = (cityName: string, index: number) => {
         const variations = [
-            `Pompe à chaleur ${cityName}`,
-            `Installateur PAC RGE ${cityName}`,
-            `Chauffage RGE ${cityName}`,
-            `Installation pompe à chaleur ${cityName}`,
-            `Artisan RGE QualiPAC ${cityName}`,
-            `${cityName} (Chauffage Écologique)`
+            `Solaranlage ${cityName}`,
+            `Photovoltaik ${cityName}`,
+            `Solar-Installateur ${cityName}`,
+            `PV-Anlage kaufen ${cityName}`,
+            `Offerte Solaranlage ${cityName}`,
+            `${cityName} (Solarstrom)`
         ];
         return variations[index % variations.length];
     };
@@ -45,16 +45,13 @@ export function Footer({ config }: FooterProps) {
     return (
         <footer className="bg-neutral-900 border-t border-white/10 py-12 text-neutral-400">
             <div className="container mx-auto px-4 text-center">
-                <h4 className="text-white font-bold mb-4">À propos de {config.name}</h4>
+                <h4 className="text-white font-bold mb-4">Über {config.name}</h4>
                 <p className="max-w-2xl mx-auto text-sm mb-8">
-                    {config.name} est le comparateur de référence pour l&apos;installation de pompes à chaleur à {config.city}.
-                    Nous sélectionnons les meilleurs artisans certifiés RGE QualiPAC pour vos projets de chauffage écologique et d&apos;économies d&apos;énergie.
-                    Obtenez jusqu&apos;à 3 devis gratuits pour comparer.
-                </p>
+                    {config.name} ist das führende Vergleichsportal für Photovoltaikanlagen in der Schweiz. Wir vermitteln Ihnen die besten Fachpartner in Ihrer Region.</p>
 
-                <div className="inline-flex items-center gap-2 bg-rose-900/30 border border-rose-800 px-4 py-2 rounded-full mb-8">
-                    <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                    <span className="text-rose-400 font-bold text-sm">Réseau d&apos;Installateurs Certifiés RGE QualiPAC</span>
+                <div className="inline-flex items-center gap-2 bg-amber-900/30 border border-amber-800 px-4 py-2 rounded-full mb-8">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <span className="text-amber-400 font-bold text-sm">Réseau d&apos;Installateurs Certifiés RGE QualiPAC</span>
                 </div>
 
                 <div className="border-t border-white/10 pt-12 mt-12">
@@ -62,17 +59,17 @@ export function Footer({ config }: FooterProps) {
                         {/* Column 1: Zones / Quartiers */}
                         <div>
                             <h5 className="text-white font-bold mb-6 text-lg tracking-tight">
-                                {config.slug === 'home' ? 'Nos Régions' : 'Zones d\'Intervention'}
+                                {config.slug === 'home' ? 'Unsere Regionen' : 'Zones d\'Intervention'}
                             </h5>
                             <ul className="space-y-3 text-sm">
                                 {config.slug === 'home' ? (
                                     <>
-                                        <li><Link href="/ville/paris" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Île-de-France</Link></li>
-                                        <li><Link href="/ville/lyon" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Auvergne-Rhône-Alpes</Link></li>
-                                        <li><Link href="/ville/marseille" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Provence-Alpes-Côte d&apos;Azur</Link></li>
-                                        <li><Link href="/ville/bordeaux" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Nouvelle-Aquitaine</Link></li>
-                                        <li><Link href="/ville/toulouse" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Occitanie</Link></li>
-                                        <li><Link href="/ville/nantes" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-rose-500 transition"></span>Pays de la Loire</Link></li>
+                                        <li><Link href="/ville/paris" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Île-de-France</Link></li>
+                                        <li><Link href="/ville/lyon" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Auvergne-Rhône-Alpes</Link></li>
+                                        <li><Link href="/ville/marseille" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Provence-Alpes-Côte d&apos;Azur</Link></li>
+                                        <li><Link href="/ville/bordeaux" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Nouvelle-Aquitaine</Link></li>
+                                        <li><Link href="/ville/toulouse" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Occitanie</Link></li>
+                                        <li><Link href="/ville/nantes" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Pays de la Loire</Link></li>
                                     </>
                                 ) : (
                                     <>
@@ -85,7 +82,7 @@ export function Footer({ config }: FooterProps) {
                                             </li>
                                         ))}
                                         {neighborhoods.length === 0 && (
-                                            <li className="text-neutral-500 italic">Tout {config.city} et agglomération</li>
+                                            <li className="text-neutral-500 italic">Ganz {config.city} und Umgebung</li>
                                         )}
                                     </>
                                 )}
@@ -96,7 +93,7 @@ export function Footer({ config }: FooterProps) {
                         <div>
                             <h5 className="text-white font-bold mb-6 text-lg tracking-tight">
                                 {(() => {
-                                    if (config.slug === 'home') return 'Notre Réseau';
+                                    if (config.slug === 'home') return 'Unser Netzwerk';
 
                                     const currentSite = config as SiteConfig;
                                     const strictNeighbors = uniqueSites.filter(s => {
@@ -107,7 +104,7 @@ export function Footer({ config }: FooterProps) {
                                         return sameDept || sameRegion;
                                     });
 
-                                    return strictNeighbors.length > 0 ? 'À proximité' : 'Notre Réseau';
+                                    return strictNeighbors.length > 0 ? 'In der Nähe' : 'Unser Netzwerk';
                                 })()}
                             </h5>
                             <ul className="space-y-3 text-sm">
@@ -134,11 +131,11 @@ export function Footer({ config }: FooterProps) {
 
                                     const getVariedFooterAnchor = (cityName: string, index: number) => {
                                         const variations = [
-                                            `Installation PAC ${cityName}`,
-                                            `Artisan QualiPAC ${cityName}`,
-                                            `Chauffage RGE ${cityName}`,
-                                            `Installateur Pompe à Chaleur ${cityName}`,
-                                            `Devis PAC ${cityName}`
+                                            `Solaranlage ${cityName}`,
+                                            `Photovoltaik ${cityName}`,
+                                            `Solar-Installateur ${cityName}`,
+                                            `PV-Anlage kaufen ${cityName}`,
+                                            `Offerte Solaranlage ${cityName}`
                                         ];
                                         return variations[index % variations.length];
                                     };
@@ -160,36 +157,36 @@ export function Footer({ config }: FooterProps) {
 
                         {/* Column 3: Solutions */}
                         <div>
-                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Nos Guides</h5>
+                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Unsere Ratgeber</h5>
                             <ul className="space-y-3 text-sm">
                                 <li>
-                                    <Link href="/guides/aides-etat-pompe-a-chaleur-2026" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
+                                    <Link href="/guides/solar-foerderung-schweiz-2026" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
                                         Aides &amp; Subventions 2026
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/guides/rentabilite-pompe-a-chaleur-chaudiere" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
+                                    <Link href="/guides/rentabilitaet-photovoltaik-schweiz" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                        Rentabilité de la PAC
+                                        Rentabilität einer PV-Anlage
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/guides/prix-pompe-a-chaleur-comparatif" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
+                                    <Link href="/guides/solaranlage-kosten-schweiz" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                        Prix des Pompes à Chaleur
+                                        Kosten einer Solaranlage
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/guides" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                        Tous nos guides
+                                        Alle Ratgeber
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/contact" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                        Devenir Installateur Partenaire
+                                        Partner werden
                                     </Link>
                                 </li>
                             </ul>
@@ -197,7 +194,7 @@ export function Footer({ config }: FooterProps) {
 
                         {/* Column 4: Marques & Contact */}
                         <div>
-                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Marques Réf.</h5>
+                            <h5 className="text-white font-bold mb-6 text-lg tracking-tight">Top-Marken</h5>
                             <ul className="space-y-3 text-sm mb-8">
                                 {[
                                     { name: "Daikin", slug: "daikin" },
@@ -208,7 +205,7 @@ export function Footer({ config }: FooterProps) {
                                     <li key={brand.slug}>
                                         <Link href={`#simulateur`} className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                             <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                            PAC {brand.name}
+                                            Solar {brand.name}
                                         </Link>
                                     </li>
                                 ))}
@@ -222,7 +219,7 @@ export function Footer({ config }: FooterProps) {
                                             <Mail size={20} />
                                         </div>
                                         <div>
-                                            <span className="block text-white font-bold text-lg">Nous écrire</span>
+                                            <span className="block text-white font-bold text-lg">Kontakt</span>
                                         </div>
                                     </Link>
                                 </li>
@@ -234,13 +231,13 @@ export function Footer({ config }: FooterProps) {
                 {/* MEGA FOOTER */}
                 <div className="border-t border-white/10 pt-12 mt-4 text-left max-w-7xl mx-auto mb-16 px-4 md:px-0">
                     <h5 className="text-white font-bold mb-8 text-xl tracking-tight text-center md:text-left">
-                        Notre Réseau National d&apos;Installateurs Pompes à Chaleur
+                        Unser Netzwerk National d&apos;Installateurs Pompes à Chaleur
                     </h5>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
                         {Object.entries(sitesByRegion).map(([region, sites]) => (
                             <div key={region} className="space-y-4">
                                 <h6 className="text-white/80 font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-rose-500/50"></span>
+                                    <span className="w-2 h-2 rounded-full bg-amber-500/50"></span>
                                     {region}
                                 </h6>
                                 <ul className="space-y-3 text-sm">
@@ -262,12 +259,12 @@ export function Footer({ config }: FooterProps) {
                 </div>
 
                 <div className="text-xs border-t border-white/10 pt-8">
-                    &copy; {new Date().getFullYear()} {config.name} - Tous droits réservés.
+                    &copy; {new Date().getFullYear()} {config.name} - Alle Rechte vorbehalten.
                 </div>
                 <div className="flex justify-center gap-4 text-xs mt-4 mb-2">
-                    <Link href={(config as any).basePath ? `${(config as any).basePath}/mentions-legales` : "/mentions-legales"} className="text-neutral-500 hover:text-white transition-colors">Mentions Légales</Link>
+                    <Link href={(config as any).basePath ? `${(config as any).basePath}/mentions-legales` : "/mentions-legales"} className="text-neutral-500 hover:text-white transition-colors">Impressum</Link>
                     <span className="text-neutral-700">•</span>
-                    <Link href={(config as any).basePath ? `${(config as any).basePath}/cgv` : "/cgv"} className="text-neutral-500 hover:text-white transition-colors">CGV</Link>
+                    <Link href={(config as any).basePath ? `${(config as any).basePath}/cgv` : "/cgv"} className="text-neutral-500 hover:text-white transition-colors">AGB</Link>
                 </div>
             </div>
         </footer>

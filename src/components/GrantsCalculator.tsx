@@ -59,7 +59,7 @@ export default function GrantsCalculator({ themeColor = "rose", onCalculateClick
                 {/* Left: Content */}
                 <div className="flex-1 flex flex-col gap-6">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 bg-rose-50 text-rose-600 px-3 py-1.5 rounded-full text-sm font-bold w-fit">
+                    <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-600 px-3 py-1.5 rounded-full text-sm font-bold w-fit">
                         <Euro className="w-4 h-4" />
                         Aides gouvernementales
                     </div>
@@ -76,7 +76,7 @@ export default function GrantsCalculator({ themeColor = "rose", onCalculateClick
                     <div className="flex flex-col gap-4 mt-4">
                         {/* MaPrimeRénov' */}
                         <div className="flex gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                            <div className="bg-rose-100 text-rose-600 h-12 w-12 rounded-lg flex items-center justify-center shrink-0">
+                            <div className="bg-amber-100 text-amber-600 h-12 w-12 rounded-lg flex items-center justify-center shrink-0">
                                 <CheckCircle className="w-6 h-6" />
                             </div>
                             <div>
@@ -89,7 +89,7 @@ export default function GrantsCalculator({ themeColor = "rose", onCalculateClick
 
                         {/* Prime CEE */}
                         <div className="flex gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                            <div className="bg-rose-100 text-rose-600 h-12 w-12 rounded-lg flex items-center justify-center shrink-0">
+                            <div className="bg-amber-100 text-amber-600 h-12 w-12 rounded-lg flex items-center justify-center shrink-0">
                                 <Euro className="w-6 h-6" />
                             </div>
                             <div>
@@ -103,7 +103,7 @@ export default function GrantsCalculator({ themeColor = "rose", onCalculateClick
 
                     <button
                         onClick={scrollToForm}
-                        className="inline-flex items-center text-rose-600 font-bold hover:underline mt-4"
+                        className="inline-flex items-center text-amber-600 font-bold hover:underline mt-4"
                     >
                         Calculer mes aides de l&apos;État <ArrowRight className="ml-2 w-4 h-4" />
                     </button>
@@ -139,7 +139,7 @@ export default function GrantsCalculator({ themeColor = "rose", onCalculateClick
                             <div className="flex justify-between items-center pt-2">
                                 <span className="text-lg font-bold text-slate-900">Reste à charge minimum</span>
                                 <span
-                                    className={`text-3xl font-black text-rose-600 transition-all duration-300 ${isVisible ? "scale-110" : ""
+                                    className={`text-3xl font-black text-amber-600 transition-all duration-300 ${isVisible ? "scale-110" : ""
                                         }`}
                                 >
                                     {animatedCost === 0 ? "0 €*" : `${animatedCost.toLocaleString("fr-FR")} €*`}

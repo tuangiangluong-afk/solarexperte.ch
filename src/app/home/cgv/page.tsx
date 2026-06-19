@@ -15,13 +15,13 @@ export default function CGV() {
                 <div className="container mx-auto flex items-center justify-between">
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-sm font-bold hover:text-rose-400 transition"
+                        className="flex items-center gap-2 text-sm font-bold hover:text-amber-400 transition"
                     >
                         <ArrowLeft size={16} />
                         Retour Accueil
                     </Link>
                     <span className="text-sm font-bold">
-                        Wärmepumpe Experte<span className="text-rose-500">.</span>
+                        Wärmepumpe Experte<span className="text-amber-500">.</span>
                     </span>
                 </div>
             </nav>
@@ -40,14 +40,14 @@ export default function CGV() {
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-                        <h2 className="mb-4 text-2xl font-bold text-rose-900">1. Objet et Acceptation</h2>
+                        <h2 className="mb-4 text-2xl font-bold text-amber-900">1. Objet et Acceptation</h2>
                         <p>
                             Le service proposé est la mise en relation avec des installateurs professionnels certifiés RGE QualiPAC spécialisés dans l&apos;étude de rentabilité, la pose et le raccordement de pompes à chaleur (Air-Eau ou Air-Air), exerçant sur l&apos;ensemble du territoire national. L&apos;utilisation du service implique l&apos;acceptation sans réserve des présentes CGV.
                         </p>
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-                        <h2 className="mb-4 text-2xl font-bold text-rose-900">2. Demandes de Devis et Tarifs</h2>
+                        <h2 className="mb-4 text-2xl font-bold text-amber-900">2. Demandes de Devis et Tarifs</h2>
                         <ul className="list-disc pl-5 space-y-2">
                             <li><strong>Demande de mise en relation :</strong> L'utilisateur remplit un formulaire précisant son besoin (puissance souhaitée, consommation électrique moyenne, système de chauffage actuel, simulateur d'aides).</li>
                             <li><strong>Devis gratuit :</strong> Le service de mise en relation et l'établissement des devis par nos partenaires sont gratuits pour l'utilisateur.</li>
@@ -56,31 +56,31 @@ export default function CGV() {
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-                        <h2 className="mb-4 text-2xl font-bold text-rose-900">3. Responsabilité</h2>
+                        <h2 className="mb-4 text-2xl font-bold text-amber-900">3. Responsabilité</h2>
                         <p>
                             <strong>WELINK TECH</strong> agit en qualité d&apos;intermédiaire technologique. La responsabilité de l'installation, de la conformité aux normes électriques/hydrauliques et de l'assurance décennale incombe exclusivement à l'installateur RGE partenaire ayant effectué les travaux.
                         </p>
                     </div>
 
                     {/* BROKER PROTECTION - Critical Legal Shield */}
-                    <div className="mb-8 rounded-2xl border-2 border-rose-200 bg-rose-50 p-8 shadow-sm">
-                        <h2 className="mb-4 text-2xl font-bold text-rose-900">4. Nature du Service - Mise en Relation</h2>
-                        <p className="font-semibold text-rose-800">
+                    <div className="mb-8 rounded-2xl border-2 border-amber-200 bg-amber-50 p-8 shadow-sm">
+                        <h2 className="mb-4 text-2xl font-bold text-amber-900">4. Nature du Service - Mise en Relation</h2>
+                        <p className="font-semibold text-amber-800">
                             Wärmepumpe Experte est une <strong>plateforme de mise en relation technique</strong> entre les utilisateurs et des installateurs de pompes à chaleur indépendants.
                         </p>
-                        <p className="mt-4 text-rose-700">
+                        <p className="mt-4 text-amber-700">
                             <strong>Wärmepumpe Experte n&apos;est pas une entreprise d&apos;installation ou de travaux.</strong> Les prestations de pose sont effectuées par des professionnels indépendants ou des sociétés tierces, dûment certifiés RGE et assurés.
                         </p>
-                        <p className="mt-4 text-rose-700">
+                        <p className="mt-4 text-amber-700">
                             En conséquence, <strong>WELINK TECH décline toute responsabilité</strong> en cas de litige lié à l&apos;exécution des travaux, incluant mais non limité à : malfaçons, retards de pose, non-obtention des subventions de l'État (MaPrimeRénov', CEE) ou tout dommage survenu pendant l'installation.
                         </p>
-                        <p className="mt-4 text-sm text-rose-600">
+                        <p className="mt-4 text-sm text-amber-600">
                             L&apos;utilisateur reconnaît que sa relation contractuelle pour les travaux is établie directement avec l'entreprise d'installation sélectionnée.
                         </p>
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-                        <h2 className="mb-4 text-2xl font-bold text-rose-900">5. Loi Applicable</h2>
+                        <h2 className="mb-4 text-2xl font-bold text-amber-900">5. Loi Applicable</h2>
                         <p>
                             Les présentes CGV sont soumises au droit français. Tout litige relève des tribunaux compétents de Nanterre.
                         </p>

@@ -127,7 +127,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     };
 
     return (
-        <main className="min-h-screen bg-white text-neutral-900 font-sans selection:bg-rose-100 selection:text-rose-900 pt-20">
+        <main className="min-h-screen bg-white text-neutral-900 font-sans selection:bg-amber-100 selection:text-amber-900 pt-20">
              <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -136,9 +136,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {/* Breadcrumb */}
             <nav className="container mx-auto px-4 py-4 border-b border-neutral-100">
                 <ol className="flex items-center space-x-2 text-sm text-neutral-500">
-                    <li><Link href="/" className="hover:text-rose-600 transition-colors">Accueil</Link></li>
+                    <li><Link href="/" className="hover:text-amber-600 transition-colors">Accueil</Link></li>
                     <li><ChevronRight className="w-3 h-3" /></li>
-                    <li><Link href="/blog" className="hover:text-rose-600 transition-colors">Blog</Link></li>
+                    <li><Link href="/blog" className="hover:text-amber-600 transition-colors">Blog</Link></li>
                     <li><ChevronRight className="w-3 h-3" /></li>
                     <li className="text-neutral-900 font-medium truncate max-w-[200px]">{post.title}</li>
                 </ol>
@@ -158,7 +158,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <div className="container mx-auto px-4 pb-12 relative z-10">
                    <div className="max-w-4xl">
                         {post.category && (
-                            <span className="inline-block bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+                            <span className="inline-block bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
                                 {post.category.name}
                             </span>
                         )}
@@ -184,7 +184,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     {/* Article */}
                     <article className="lg:col-span-8">
                           {post.excerpt && (
-                            <div className="bg-rose-50 border-l-4 border-rose-600 p-6 rounded-r-xl mb-10 text-lg font-medium text-rose-900">
+                            <div className="bg-amber-50 border-l-4 border-amber-600 p-6 rounded-r-xl mb-10 text-lg font-medium text-amber-900">
                                 {post.excerpt}
                             </div>
                         )}
@@ -192,7 +192,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <div 
                             className="prose prose-lg prose-neutral max-w-none 
                             prose-headings:font-bold prose-headings:text-neutral-900
-                            prose-a:text-rose-600 prose-a:no-underline hover:prose-a:underline
+                            prose-a:text-amber-600 prose-a:no-underline hover:prose-a:underline
                             prose-img:rounded-xl"
                             dangerouslySetInnerHTML={{ __html: marked.parse(post.content) }}
                         />
@@ -204,7 +204,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 <div className="space-y-4">
                                      {post.faq.map((item, index) => (
                                         <details key={index} className="group bg-white rounded-xl border border-neutral-200 overflow-hidden">
-                                            <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold hover:text-rose-600">
+                                            <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold hover:text-amber-600">
                                                 {item.question}
                                                 <ChevronRight className="w-5 h-5 group-open:rotate-90 transition-transform" />
                                             </summary>
@@ -226,11 +226,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 <User className="w-4 h-4" /> Auteur
                             </h4>
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold overflow-hidden relative">
+                                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold overflow-hidden relative">
                                     {(post.author_name || 'E')[0]}
                                       {/* Verified Badge */}
                                     <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
-                                        <div className="bg-rose-500 rounded-full w-3 h-3 border-2 border-white"></div>
+                                        <div className="bg-amber-500 rounded-full w-3 h-3 border-2 border-white"></div>
                                     </div>
                                 </div>
                                 <div>
@@ -250,10 +250,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                          <TableOfContents content={post.content} />
 
                          {/* CTA */}
-                         <div className="bg-gradient-to-br from-rose-950 to-rose-900 text-white rounded-2xl p-8 text-center shadow-lg">
+                         <div className="bg-gradient-to-br from-amber-950 to-amber-900 text-white rounded-2xl p-8 text-center shadow-lg">
                             <h4 className="text-xl font-bold mb-2">Devis Gratuit</h4>
-                            <p className="text-rose-100 text-sm mb-6">Comparez les prix des installateurs RGE près de chez vous.</p>
-                            <Link href="/devis" className="inline-block bg-white text-rose-900 px-6 py-3 rounded-full font-bold hover:bg-rose-50 transition-colors w-full">
+                            <p className="text-amber-100 text-sm mb-6">Comparez les prix des installateurs RGE près de chez vous.</p>
+                            <Link href="/devis" className="inline-block bg-white text-amber-900 px-6 py-3 rounded-full font-bold hover:bg-amber-50 transition-colors w-full">
                                 Commencer
                             </Link>
                          </div>

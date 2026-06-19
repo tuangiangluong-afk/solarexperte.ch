@@ -16,7 +16,7 @@ export default function MobileStickyCTA({
         emerald: "from-emerald-600 to-emerald-700 shadow-emerald-500/30",
         amber: "from-amber-600 to-amber-700 shadow-amber-500/30",
         purple: "from-purple-600 to-purple-700 shadow-purple-500/30",
-        rose: "from-rose-600 to-rose-700 shadow-rose-500/30",
+        rose: "from-amber-600 to-amber-700 shadow-amber-500/30",
     };
 
     const gradientClass = gradients[themeColor] || gradients.rose;

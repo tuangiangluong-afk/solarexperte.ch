@@ -23,22 +23,22 @@ export const revalidate = 60;
 const components = {
     // Un encart bleu pour les conseils pro
     Callout: ({ children, title }: { children: React.ReactNode, title?: string }) => (
-        <div className="my-8 border-l-4 border-rose-600 bg-rose-50 p-6 rounded-r-xl">
-            {title && <h4 className="font-bold text-rose-900 mb-2 flex items-center gap-2"><Zap size={18} /> {title}</h4>}
-            <div className="text-rose-800">{children}</div>
+        <div className="my-8 border-l-4 border-amber-600 bg-amber-50 p-6 rounded-r-xl">
+            {title && <h4 className="font-bold text-amber-900 mb-2 flex items-center gap-2"><Zap size={18} /> {title}</h4>}
+            <div className="text-amber-800">{children}</div>
         </div>
     ),
     // Le bouton magique à mettre au milieu de l'article
     CTAButton: ({ href, url, text }: { href?: string, url?: string, text: string }) => (
         <div className="my-8 text-center not-prose">
-            <a href={href || url || '#'} className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-rose-500/30 transition-all transform hover:-translate-y-1">
+            <a href={href || url || '#'} className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-amber-500/30 transition-all transform hover:-translate-y-1">
                 {text} <ArrowRight size={20} />
             </a>
         </div>
     ),
     CtaButton: ({ href, url, text }: { href?: string, url?: string, text: string }) => (
         <div className="my-8 text-center not-prose">
-            <a href={href || url || '#'} className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-rose-500/30 transition-all transform hover:-translate-y-1">
+            <a href={href || url || '#'} className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-amber-500/30 transition-all transform hover:-translate-y-1">
                 {text} <ArrowRight size={20} />
             </a>
         </div>
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         .select('seo_title, title, seo_description, excerpt')
         .eq('slug', resolvedParams.slug)
         .eq('status', 'published')
-        .contains('tags', ['pac'])
+        .contains('tags', ['solar'])
         .single();
     
     if (post) {
@@ -114,7 +114,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             `)
             .eq('slug', resolvedParams.slug)
             .eq('status', 'published')
-            .contains('tags', ['pac'])
+            .contains('tags', ['solar'])
             .single();
         
         if (data && !error) {
@@ -175,19 +175,19 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         "@type": "Article",
         "headline": guide.title,
         "description": guide.description,
-        "image": guide.image ? [`https://www.expertwaermepumpe.de${guide.image}`] : [`https://www.expertwaermepumpe.de/images/og-image.png`],
+        "image": guide.image ? [`https://www.solarexperte.ch${guide.image}`] : [`https://www.solarexperte.ch/images/og-image.png`],
         "datePublished": guide.date,
         "author": [{
             "@type": "Organization",
-            "name": "Wärmepumpe Experte",
-            "url": "https://www.expertwaermepumpe.de"
+            "name": "Solar Experte",
+            "url": "https://www.solarexperte.ch"
         }],
         "publisher": {
             "@type": "Organization",
-            "name": "Wärmepumpe Experte",
+            "name": "Solar Experte",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.expertwaermepumpe.de/logo.png"
+                "url": "https://www.solarexperte.ch/logo.png"
             }
         }
     };
@@ -196,7 +196,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <div className="min-h-screen bg-white text-slate-900 font-sans">
             {/* Nav */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-            <Header isHub={true} variant="default" themeColor="rose" />
+            <Header isHub={true} variant="default" themeColor="amber" />
 
             <main className="container mx-auto px-4 py-12 pt-40">
                 {/* GRID LAYOUT : Contenu à gauche, Pub à droite */}
@@ -206,9 +206,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                     <div>
                         {/* Header Article */}
                         <div className="mb-10">
-                            <Link href="/guides" className="inline-flex items-center text-sm text-slate-500 hover:text-rose-600 mb-6 group">
+                            <Link href="/guides" className="inline-flex items-center text-sm text-slate-500 hover:text-amber-600 mb-6 group">
                                 <ArrowLeft size={16} className="mr-2 group-hover:-translate-x-1 transition-transform" />
-                                Retour aux guides
+                                Zurück zu den Ratgebern
                             </Link>
 
                             {/* Meta Data */}
@@ -220,7 +220,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                                 <span className="text-slate-300">|</span>
                                 <span className="flex items-center gap-1">
                                     <Calendar size={14} />
-                                    {new Date(guide.meta.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+                                    {new Date(guide.meta.date).toLocaleDateString('de-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
                                 </span>
                             </div>
 
@@ -246,7 +246,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                         </div>
 
                         {/* Content Body */}
-                        <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-headings:scroll-mt-32 prose-a:text-rose-600 hover:prose-a:text-rose-700 prose-img:rounded-2xl max-w-none">
+                        <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-headings:scroll-mt-32 prose-a:text-amber-600 hover:prose-a:text-amber-700 prose-img:rounded-2xl max-w-none">
                             {dbPost ? (
                                 <div dangerouslySetInnerHTML={{ __html: marked.parse(guide.content) }} />
                             ) : (
@@ -265,17 +265,16 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                         {/* Author Box (Améliorée) */}
                         <div className="mt-16 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="w-14 h-14 bg-rose-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md">
+                                <div className="w-14 h-14 bg-amber-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md">
                                     EP
                                 </div>
                                 <div>
-                                    <div className="font-bold text-lg text-slate-900">Wärmepumpe Experte</div>
-                                    <div className="text-sm text-slate-500">Pôle Technique & Réglementation</div>
+                                    <div className="font-bold text-lg text-slate-900">Solar Experte</div>
+                                    <div className="text-sm text-slate-500">Technische Abteilung</div>
                                 </div>
                             </div>
                             <p className="text-slate-600 mb-4">
-                                Nos guides sont rédigés par des techniciens et experts en chauffage et pompes à chaleur pour vous aider à comparer les meilleures solutions de confort thermique. Les informations sur les aides (MaPrimeRénov&apos;, CEE, TVA réduite à 5.5%) sont vérifiées régulièrement auprès des organismes officiels.
-                            </p>
+                                Unsere Solar-Ratgeber werden von Energieexperten verfasst, um Ihnen einen unabhängigen Vergleich zu ermöglichen.</p>
                         </div>
                     </div>
 
@@ -292,11 +291,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                             {/* Dynamic Table of Contents */}
                             {toc.length > 0 && (
                                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
-                                    <h4 className="font-bold text-sm text-slate-400 uppercase tracking-wider mb-4">Dans cet article</h4>
+                                    <h4 className="font-bold text-sm text-slate-400 uppercase tracking-wider mb-4">In diesem Artikel</h4>
                                     <ul className="space-y-3 text-sm text-slate-600">
                                         {toc.map((item: any, i: number) => (
                                             <li key={i} className={`
-                                                hover:text-rose-600 cursor-pointer transition-colors
+                                                hover:text-amber-600 cursor-pointer transition-colors
                                                 ${item.level > 2 ? 'pl-4 border-l border-slate-200' : ''}
                                             `}>
                                                 <a href={`#${item.id}`} className="block w-full">
@@ -314,9 +313,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
             {/* MOBILE STICKY CTA (Bottom Bar) */}
             <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur border-t border-slate-200 lg:hidden z-40">
-                <a href="/#simulateur" className="flex items-center justify-center gap-2 w-full bg-rose-600 text-white font-bold py-3 rounded-xl shadow-lg">
+                <a href="/#simulateur" className="flex items-center justify-center gap-2 w-full bg-amber-600 text-white font-bold py-3 rounded-xl shadow-lg">
                     <Zap size={18} />
-                    Comparer les devis gratuits
+                    Kostenlose Offerten vergleichen
                 </a>
             </div>
         </div>

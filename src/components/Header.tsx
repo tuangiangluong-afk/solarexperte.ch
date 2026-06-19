@@ -33,7 +33,7 @@ export default function Header({
         emerald: "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/20",
         amber: "bg-amber-600 hover:bg-amber-700 shadow-amber-500/20",
         purple: "bg-purple-600 hover:bg-purple-700 shadow-purple-500/20",
-        rose: "bg-rose-600 hover:bg-rose-700 shadow-rose-500/20",
+        rose: "bg-amber-600 hover:bg-amber-700 shadow-amber-500/20",
     };
 
     const btnClass = buttonColors[themeColor] || buttonColors.rose;
@@ -69,15 +69,15 @@ export default function Header({
                     {/* Desktop Navigation (Hub Only) */}
                     {isHub && (
                         <div className={`hidden md:flex items-center gap-6 text-sm font-medium ${variant === "light" ? "text-slate-300" : "text-slate-600"}`}>
-                            <Link href="/guides" className="hover:text-rose-600 transition">Guides & Aides</Link>
-                            <Link href="#simulateur" className="hover:text-rose-600 transition">Simulateur</Link>
+                            <Link href="/guides" className="hover:text-amber-600 transition">Ratgeber & Förderung</Link>
+                            <Link href="#simulateur" className="hover:text-amber-600 transition">Solar-Rechner</Link>
                         </div>
                     )}
 
                     {/* RGE Badge (Desktop) */}
-                    <div className="hidden lg:flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 px-3 py-1.5 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                        <span className="text-xs font-bold text-rose-700">Artisan RGE QualiPAC</span>
+                    <div className="hidden lg:flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span className="text-xs font-bold text-amber-700">Zertifizierte Solar-Fachpartner</span>
                     </div>
 
                     {/* CTA Devis (Replaces Phone) - Hidden on mobile to avoid redundancy with sticky CTA */}
@@ -86,7 +86,7 @@ export default function Header({
                         className={`hidden md:flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-white shadow-lg transition transform hover:-translate-y-0.5 ${btnClass}`}
                     >
                         <Zap size={16} fill="currentColor" />
-                        <span>Devis Gratuit</span>
+                        <span>Kostenlose Offerte</span>
                     </Link>
                 </div>
             </div>

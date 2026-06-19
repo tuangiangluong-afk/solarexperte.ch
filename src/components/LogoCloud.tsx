@@ -25,7 +25,7 @@ export default function LogoCloud() {
                                 {brand.name === "Mitsubishi" && <span className="font-bold text-xl uppercase tracking-widest text-red-700">MITSUBISHI</span>}
                                 {brand.name === "Panasonic" && <span className="font-bold text-xl tracking-tight text-slate-700">Panasonic</span>}
                                 {brand.name === "Toshiba" && <span className="font-bold text-lg text-red-600">TOSHIBA</span>}
-                                {brand.name === "Hitachi" && <span className="font-bold text-xl tracking-wide text-rose-800">Hitachi</span>}
+                                {brand.name === "Hitachi" && <span className="font-bold text-xl tracking-wide text-amber-800">Hitachi</span>}
                             </div>
                         ))}
                     </div>

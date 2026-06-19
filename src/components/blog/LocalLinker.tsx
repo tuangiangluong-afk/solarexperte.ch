@@ -60,12 +60,12 @@ export default function LocalLinker() {
     return (
         <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-xl ring-1 ring-white/10 relative z-50">
             <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shrink-0">
                     <MapPin className="text-slate-950" size={20} />
                 </div>
                 <div>
                     <h3 className="font-bold text-lg">Installateur Chauffage / PAC Local</h3>
-                    <p className="text-rose-200 text-xs">Trouvez votre expert de proximité</p>
+                    <p className="text-amber-200 text-xs">Trouvez votre expert de proximité</p>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ export default function LocalLinker() {
                         onFocus={() => setShowSuggestions(true)}
                         onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Delay to allow click
                         placeholder="Ville (ex: Paris, Lyon...)"
-                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 pl-10 text-sm focus:ring-2 focus:ring-rose-500 outline-none transition placeholder:text-slate-500 text-white"
+                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 pl-10 text-sm focus:ring-2 focus:ring-amber-500 outline-none transition placeholder:text-slate-500 text-white"
                         autoComplete="off"
                     />
                     <MapPin size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
@@ -90,7 +90,7 @@ export default function LocalLinker() {
                     <button
                         type="submit"
                         disabled={status === 'loading' || !query}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-rose-500 rounded-lg hover:bg-rose-400 disabled:opacity-50 transition text-slate-950"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-amber-500 rounded-lg hover:bg-amber-400 disabled:opacity-50 transition text-slate-950"
                     >
                         {status === 'loading' ? (
                             <Loader2 size={16} className="animate-spin text-slate-950" />
@@ -109,10 +109,10 @@ export default function LocalLinker() {
                                     <button
                                         type="button"
                                         onClick={() => handleSelect(s.slug, s.name)}
-                                        className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-700 transition flex items-center justify-between group"
+                                        className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between group"
                                     >
                                         <span className="font-medium text-slate-800">{s.name}</span>
-                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-rose-500" />
+                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-amber-500" />
                                     </button>
                                 </li>
                             ))}
@@ -150,7 +150,7 @@ export default function LocalLinker() {
                             </p>
                             <Link
                                 href="/#simulateur"
-                                className="text-xs font-bold text-rose-400 hover:text-rose-300 underline decoration-rose-400/30"
+                                className="text-xs font-bold text-amber-400 hover:text-amber-300 underline decoration-amber-400/30"
                             >
                                 Faire une demande nationale
                             </Link>

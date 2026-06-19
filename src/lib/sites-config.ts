@@ -57,14 +57,14 @@ const TEMPLATE_FEATURES = [
 
 const _hubConfig: SiteConfig = {
     slug: "home",
-    domain: "expertwaermepumpe.de",
+    domain: 'solarexperte.ch',
     city: "Deutschland",
     postalCode: "",
     department: "",
     region: "National",
-    name: "Wärmepumpe Experte",
+    name: 'Solar Experte',
     phoneNumber: "01 84 80 00 00",
-    email: "contact@expertwaermepumpe.de",
+    email: 'kontakt@solarexperte.ch',
     targetType: "MIXED",
     priceRange: 'STANDARD',
     theme: 'premium',
@@ -91,8 +91,8 @@ const _hubConfig: SiteConfig = {
 };
 
 export const SITES: Record<string, SiteConfig> = {
-    "expertwaermepumpe.de": _hubConfig,
-    "www.expertwaermepumpe.de": _hubConfig,
+    "solarexperte.ch": _hubConfig,
+    "www.solarexperte.ch": _hubConfig,
     "home": _hubConfig
 };
 

@@ -44,7 +44,7 @@ export async function generateMetadata({
         description: pseo.meta_description,
         // Canonical is handled by root layout.tsx
         alternates: {
-            canonical: `https://www.expertwaermepumpe.de/ville/${resolvedParams.slug}`,
+            canonical: `https://www.solarexperte.ch/ville/${resolvedParams.slug}`,
         },
         openGraph: {
             title: pseo.meta_title,
@@ -55,10 +55,10 @@ export async function generateMetadata({
                     url: site.heroImage,
                     width: 1200,
                     height: 630,
-                    alt: `Installation de pompes à chaleur à ${site.city}`
+                    alt: `Photovoltaikanlage in ${site.city}`
                 }
             ],
-            locale: "fr_FR",
+            locale: "de_CH",
             type: "website",
         },
         robots: {
@@ -90,7 +90,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 city={site.city}
                 phoneNumber={site.phoneNumber}
                 variant="default" // Force Light Default
-                themeColor="rose"
+                themeColor="amber"
             />
 
             <SchemaJSON type="LocalBusiness" site={site} />
@@ -100,8 +100,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 bg-rose-50 text-rose-700 px-4 py-2 rounded-full text-sm font-bold mb-6">
-                                <CheckCircle size={16} className="text-rose-600" />
+                            <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                                <CheckCircle size={16} className="text-amber-600" />
                                 {pseo.hero_badge}
                             </div>
                             <h1
@@ -115,16 +115,16 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                             
                             {/* Local Expert Tip */}
                             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-8 flex gap-3">
-                                <Award className="text-rose-600 shrink-0 mt-1" />
+                                <Award className="text-amber-600 shrink-0 mt-1" />
                                 <p className="text-sm text-slate-700 italic">
-                                    <strong>Conseil Expert :</strong> {pseo.expert_tip}
+                                    <strong>Experten-Tipp:</strong> {pseo.expert_tip}
                                 </p>
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
                                     href="#simulateur"
-                                    className="bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-rose-700 transition"
+                                    className="bg-amber-600 text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-amber-700 transition"
                                 >
                                     {pseo.cta_primary}
                                 </a>
@@ -132,7 +132,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                                     href={`tel:${site.phoneNumber}`}
                                     className="bg-slate-100 text-slate-900 px-8 py-4 rounded-xl font-bold text-center hover:bg-slate-200 transition"
                                 >
-                                    Appeler un expert
+                                    Experten anrufen
                                 </a>
                             </div>
                         </div>
@@ -152,20 +152,20 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto bg-white p-8 rounded-3xl shadow-xl">
                         <div className="text-center mb-10">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Votre devis gratuit en 2 min</h2>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Kostenlose Analyse in 2 Min.</h2>
                             <p className="text-slate-600">Estimation immédiate de vos aides et du coût d&apos;installation</p>
                         </div>
                         <LeadForm
                             city={site.city}
-                            domain="expertwaermepumpe.de"
+                            domain="solarexperte.ch"
                             targetType="MIXED"
-                            themeColor="rose"
+                            themeColor="amber"
                         />
                     </div>
                 </div>
             </section>
 
-            <Reviews site={site} themeColor="rose" />
+            <Reviews site={site} themeColor="amber" />
             <LocalFAQ site={site} segment="B2C" />
             <VillesVoisines currentCitySlug={slugify(site.city)} department={site.department || ""} cityName={site.city} />
             <InternalMesh city={site.city} config={site} />

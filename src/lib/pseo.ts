@@ -13,110 +13,93 @@ export interface PseoPageContent {
 }
 
 const REGIONAL_DATA: Record<string, { subsidyName: string; subsidyAmount: string; avgPrice: string; }> = {
-    "75": { subsidyName: "MaPrimeRénov' Paris", subsidyAmount: "MaPrimeRénov' + CEE + Aide Ville de Paris", avgPrice: "8 000€ – 18 000€" },
-    "69": { subsidyName: "MaPrimeRénov' Métropole Lyon", subsidyAmount: "MaPrimeRénov' + CEE + Aide Métropole de Lyon", avgPrice: "7 500€ – 16 000€" },
-    "13": { subsidyName: "MaPrimeRénov' Bouches-du-Rhône", subsidyAmount: "MaPrimeRénov' + CEE + Prime départementale 13", avgPrice: "7 000€ – 15 000€" },
-    "06": { subsidyName: "MaPrimeRénov' Alpes-Maritimes", subsidyAmount: "MaPrimeRénov' + CEE + Aide MNCA", avgPrice: "7 500€ – 16 500€" },
-    "33": { subsidyName: "MaPrimeRénov' Gironde", subsidyAmount: "MaPrimeRénov' + CEE + Aide Bordeaux Métropole", avgPrice: "7 000€ – 15 500€" },
-    "59": { subsidyName: "MaPrimeRénov' Nord", subsidyAmount: "MaPrimeRénov' + CEE + Aide locale MEL", avgPrice: "7 000€ – 15 000€" },
-    "44": { subsidyName: "MaPrimeRénov' Loire-Atlantique", subsidyAmount: "MaPrimeRénov' + CEE + Aide régionale Pays de la Loire", avgPrice: "7 000€ – 15 000€" }
+    "ZH": { subsidyName: "Pronovo + Kanton Zürich", subsidyAmount: "Einmalvergütung + Lokale Förderung", avgPrice: "25'000 CHF – 35'000 CHF" },
+    "BE": { subsidyName: "Pronovo + Kanton Bern", subsidyAmount: "Einmalvergütung + Berner Solarprogramm", avgPrice: "24'000 CHF – 33'000 CHF" },
+    "BS": { subsidyName: "Pronovo + Kanton Basel", subsidyAmount: "Einmalvergütung + Basler Förderung", avgPrice: "25'000 CHF – 34'000 CHF" },
 };
 
 const DEFAULT_REGIONAL = {
-    subsidyName: "MaPrimeRénov' & CEE",
-    subsidyAmount: "Jusqu'à 11 000€ de MaPrimeRénov' + Certificats d'Économie d'Énergie",
-    avgPrice: "7 000€ – 16 000€"
+    subsidyName: "Pronovo Einmalvergütung",
+    subsidyAmount: "Bis zu 30% der Investitionskosten über Pronovo",
+    avgPrice: "20'000 CHF – 35'000 CHF"
 };
 
-function getExpertTip(city: string, dept: string, neighborhoods: string[]): string {
-    const hash = city.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-    const isFrance = city.toLowerCase() === "france";
-    const prep = isFrance ? "en" : "à";
+type SpintaxType = "meta_title" | "meta_description" | "hero_title" | "hero_subtitle" | "cta_primary";
+type SpintaxContext = "HUB" | "LOCAL";
 
-    const tips = [
-        `Pour une installation de pompe à chaleur ${prep} ${city}, nous recommandons une PAC air-eau si vous disposez déjà de radiateurs à eau chaude ou d'un plancher chauffant. Nos installateurs RGE QualiPAC partenaires réalisent l'étude thermique et le dimensionnement sous 24h.`,
-        `À ${city}, coupler votre pompe à chaleur air-eau avec un ballon thermodynamique vous permet de couvrir 100% de vos besoins en chauffage ET eau chaude sanitaire. ${isFrance ? "Notre réseau" : `En ${dept}, nos artisans`} certifiés QualiPAC réalisent l'étude sous 24h.`,
-        `Les aides MaPrimeRénov' ${prep} ${city} pour le remplacement d'une chaudière fioul ou gaz par une pompe à chaleur peuvent atteindre 11 000€. Pensez à faire valider votre éligibilité avant de signer un devis.`,
-        `Pour optimiser le rendement de votre PAC ${prep} ${city}, veillez à bien isoler votre logement au préalable. Un COP de 4 signifie que pour 1 kWh d'électricité consommé, la PAC produit 4 kWh de chaleur.`,
-    ];
-    return tips[hash % tips.length];
-}
+const templates: Record<SpintaxType, Record<SpintaxContext, string[]>> = {
+    meta_title: {
+        HUB: [
+            "Die besten Photovoltaik-Installateure in {city} | 3 Offerten",
+            "Solaranlage in {city} - Preise vergleichen & Fördergelder sichern",
+            "Top Solar-Experten im Kanton {dept} | Unverbindlicher Vergleich"
+        ],
+        LOCAL: [
+            "Ihr lokaler Photovoltaik-Experte in {city} | Offerte in 24h",
+            "Solaranlage installieren in {city} | Schweizer Qualität",
+            "Photovoltaik & Speicher in {city} - Machen Sie sich unabhängig"
+        ]
+    },
+    meta_description: {
+        HUB: [
+            "Vergleichen Sie geprüfte Solar-Installateure in {city}. Sparen Sie bei den Installationskosten und sichern Sie sich die Einmalvergütung (Pronovo).",
+            "Photovoltaik-Verzeichnis für {city}. Finden Sie den besten Experten für Ihr Einfamilienhaus. Transparente Preise und lokale Fachbetriebe."
+        ],
+        LOCAL: [
+            "Reduzieren Sie Ihre Stromrechnung in {city}. Lokaler Solar-Installateur, schlüsselfertige PV-Anlagen inkl. Anmeldung und Fördergelder.",
+            "Ihr Fachbetrieb für Solaranlagen in {city}. Höchste Erträge, Top-Materialien und schnelle Installation für Ihr Eigenheim im Kanton {dept}."
+        ]
+    },
+    hero_title: {
+        HUB: [
+            "Vergleichen Sie die <span class=\"text-amber-500\">besten Solar-Experten</span> in {city}",
+            "Photovoltaik in <span class=\"text-amber-500\">{city}</span>: Preise & Offerten vergleichen",
+            "Finden Sie Ihren <span class=\"text-amber-500\">Solar-Installateur</span> in {city}"
+        ],
+        LOCAL: [
+            "Ihr <span class=\"text-amber-500\">Photovoltaik-Installateur</span> in {city}",
+            "Werden Sie unabhängig mit einer Solaranlage in <span class=\"text-amber-500\">{city}</span>",
+            "Die <span class=\"text-amber-500\">Solar-Experten</span> für den Kanton {dept}"
+        ]
+    },
+    hero_subtitle: {
+        HUB: [
+            "Erhalten Sie bis zu 3 kostenlose Offerten von zertifizierten lokalen Fachbetrieben. Sichern Sie sich die maximalen Fördergelder.",
+            "Sparen Sie Zeit und Geld. Wir finden die besten Solar-Profis in Ihrer Nähe für Ihr Eigenheim."
+        ],
+        LOCAL: [
+            "Schlüsselfertige Solaranlagen: Von der Planung über die Pronovo-Förderung bis zur Installation. Alles aus einer Hand in Ihrer Nähe.",
+            "Schützen Sie sich vor steigenden Strompreisen. Kostenlose Ertragsanalyse für Ihr Haus in {city}."
+        ]
+    },
+    cta_primary: {
+        HUB: ["Offerten vergleichen"],
+        LOCAL: ["Kostenlose Analyse anfordern"]
+    }
+};
 
-function getIntroHtml(city: string, dept: string, neighborhoods: string[], postalCode: string, avgPrice: string): string {
-    const hash = city.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-    const isFrance = city.toLowerCase() === "france";
-    const prep = isFrance ? "en" : "à";
+export async function getPseoContent(cityConfig: CityConfig, isHub: boolean = false): Promise<PseoPageContent> {
+    const context: SpintaxContext = isHub ? "HUB" : "LOCAL";
+    const cityHash = cityConfig.city.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const pick = (arr: string[]) => arr[cityHash % arr.length];
+    
+    const replaceVars = (text: string) => {
+        return text
+            .replace(/{city}/g, cityConfig.city)
+            .replace(/{dept}/g, cityConfig.department || "");
+    };
 
-    const neighborhoodMention = neighborhoods.length >= 2
-        ? `Nos techniciens QualiPAC interviennent dans tous les secteurs : <strong>${neighborhoods.slice(0, 3).join(', ')}</strong> et communes environnantes.`
-        : "";
-
-    const postalCodeMention = postalCode ? ` (${postalCode})` : "";
-
-    const intros = [
-        `<p class="mb-4">
-            Vous souhaitez installer une <strong>pompe à chaleur</strong> ${prep} <strong>${city}${postalCodeMention}</strong> pour réduire vos factures de chauffage ? 
-            Notre réseau d'installateurs qualifiés <strong>RGE QualiPAC</strong> conçoit et réalise la pose de votre système de chauffage performant (PAC air-eau ou air-air).
-            ${neighborhoodMention}
-        </p>
-        <p>
-            Une installation standard de PAC air-eau ${prep} ${city} coûte généralement entre <strong>${avgPrice}</strong> avant déduction des aides. 
-            Le remplacement de votre ancienne chaudière par une pompe à chaleur vous permet d'économiser jusqu'à <strong>70%</strong> sur votre facture de chauffage annuelle.
-        </p>`,
-
-        `<p class="mb-4">
-            Chauffez votre logement efficacement ${prep} <strong>${city}</strong>${dept ? ` (${dept})` : ''} et protégez-vous contre la hausse des prix de l'énergie fossile. 
-            Nos experts en pompes à chaleur réalisent une étude thermique gratuite sur-mesure pour évaluer les besoins de votre habitat et estimer vos économies futures.
-        </p>
-        <p>
-            ${neighborhoodMention} Budget estimé : <strong>${avgPrice}</strong> tout compris avant déduction des aides MaPrimeRénov' et CEE. 
-            Nous vous aidons à constituer votre dossier de subventions pour maximiser vos aides.
-        </p>`,
-
-        `<p class="mb-4">
-            Passez au chauffage haute performance ${prep} <strong>${city}</strong> en profitant des aides de l'État pour la rénovation énergétique. 
-            Nos installateurs certifiés RGE QualiPAC vous garantissent des équipements de grandes marques (Daikin, Atlantic, Mitsubishi, Panasonic) garantis jusqu'à 10 ans.
-        </p>
-        <p>
-            De l'étude thermique à la mise en service ${prep} ${city}, nous prenons en charge 100% des démarches administratives et le dossier MaPrimeRénov'. 
-            ${neighborhoodMention}
-        </p>`,
-    ];
-
-    return intros[hash % intros.length];
-}
-
-export async function getPseoContent(cityConfig: CityConfig, targetType: string = 'MIXED'): Promise<PseoPageContent> {
-    const { city, department, region, postalCode, neighborhoods, pricing } = cityConfig;
-    const dept = department || "";
-    const postal = postalCode || "";
-    const quartiers = neighborhoods || [];
-
-    const deptCode = dept.length >= 2 ? dept.substring(0, 2) : "";
-    const regionalInfo = REGIONAL_DATA[deptCode] || DEFAULT_REGIONAL;
-
-    const realPrice = pricing?.base || "Sur Devis";
-
-    const isFrance = city.toLowerCase() === "france";
-    const prep = isFrance ? "en" : "à";
-
-    const meta_title = `Installateur Pompe à Chaleur ${isFrance ? "en France" : city}${postal ? ` (${postal})` : ''} | RGE QualiPAC`;
-    const meta_description = `Installation de pompe à chaleur air-eau et air-air ${prep} ${city} par un artisan certifié RGE QualiPAC. Économisez jusqu'à 70% sur votre chauffage. Devis gratuit sous 24h.`;
-
-    const hero_title = `Installateur <span class="text-rose-500">Pompe à Chaleur</span> ${prep} ${city}${postal ? ` <span class="text-slate-400 text-3xl">(${postal})</span>` : ''}`;
-    const hero_badge = regionalInfo.subsidyName;
-
-    const intro_html = getIntroHtml(city, dept, quartiers, postal, regionalInfo.avgPrice);
+    const regional = REGIONAL_DATA[cityConfig.department || ""] || DEFAULT_REGIONAL;
 
     return {
-        meta_title,
-        meta_description,
-        hero_title,
-        hero_badge,
-        intro_html,
-        cta_primary: "Simuler mes aides chauffage",
-        pricing_estimated: realPrice,
-        regional_subsidy: regionalInfo.subsidyAmount,
-        expert_tip: getExpertTip(city, dept, quartiers),
+        meta_title: replaceVars(pick(templates.meta_title[context])),
+        meta_description: replaceVars(pick(templates.meta_description[context])),
+        hero_title: replaceVars(pick(templates.hero_title[context])),
+        hero_badge: isHub ? "100% Kostenlos | Unverbindlich" : `Lokaler Fachbetrieb in ${cityConfig.city}`,
+        intro_html: replaceVars(pick(templates.hero_subtitle[context])),
+        cta_primary: pick(templates.cta_primary[context]),
+        pricing_estimated: regional.avgPrice,
+        regional_subsidy: regional.subsidyAmount,
+        expert_tip: `Profitieren Sie von der Einmalvergütung (Pronovo) im Kanton ${cityConfig.department || ""}.`
     };
 }

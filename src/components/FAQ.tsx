@@ -40,7 +40,7 @@ export default function FAQ({ city, type, themeColor = 'rose' }: FAQProps) {
         emerald: "bg-emerald-100 text-emerald-700",
         amber: "bg-amber-100 text-amber-800",
         purple: "bg-purple-100 text-purple-700",
-        rose: "bg-rose-100 text-rose-800"
+        rose: "bg-amber-100 text-amber-800"
     };
 
     const faqSchema = {

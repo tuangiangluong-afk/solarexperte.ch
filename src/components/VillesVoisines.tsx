@@ -64,7 +64,7 @@ export function VillesVoisines({ currentCitySlug, department, cityName }: Villes
                         <Link
                             key={city.slug}
                             href={`/ville/${city.slug}`}
-                            className="text-sm text-slate-700 hover:text-rose-700 transition-colors block text-center bg-slate-50 py-3 px-2 rounded-lg border border-slate-100 hover:border-rose-200 hover:shadow-md font-medium"
+                            className="text-sm text-slate-700 hover:text-amber-700 transition-colors block text-center bg-slate-50 py-3 px-2 rounded-lg border border-slate-100 hover:border-amber-200 hover:shadow-md font-medium"
                             title={`Installation de pompes à chaleur à ${city.name}`}
                         >
                             {city.name}

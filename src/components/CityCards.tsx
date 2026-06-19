@@ -30,9 +30,9 @@ export function CityCards({ cities, themeColor = 'gold' }: CityCardProps) {
             text: 'text-teal-600'
         },
         orange: {
-            hover: 'hover:border-orange-500 hover:shadow-xl',
-            bg: 'bg-orange-100',
-            text: 'text-orange-600'
+            hover: 'hover:border-amber-500 hover:shadow-xl',
+            bg: 'bg-amber-100',
+            text: 'text-amber-600'
         },
         gold: {
             hover: 'hover:border-amber-500 hover:shadow-xl',
@@ -40,9 +40,9 @@ export function CityCards({ cities, themeColor = 'gold' }: CityCardProps) {
             text: 'text-amber-600'
         },
         rose: {
-            hover: 'hover:border-rose-500 hover:shadow-xl',
-            bg: 'bg-rose-100',
-            text: 'text-rose-600'
+            hover: 'hover:border-amber-500 hover:shadow-xl',
+            bg: 'bg-amber-100',
+            text: 'text-amber-600'
         },
         blue: {
             hover: 'hover:border-blue-500 hover:shadow-xl',
@@ -65,9 +65,9 @@ export function CityCards({ cities, themeColor = 'gold' }: CityCardProps) {
             text: 'text-purple-600'
         }
     }[themeColor] || {
-        hover: 'hover:border-rose-500 hover:shadow-xl',
-        bg: 'bg-rose-100',
-        text: 'text-rose-600'
+        hover: 'hover:border-amber-500 hover:shadow-xl',
+        bg: 'bg-amber-100',
+        text: 'text-amber-600'
     };
 
     return (

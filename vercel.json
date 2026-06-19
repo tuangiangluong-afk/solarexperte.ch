@@ -9,10 +9,10 @@
             "has": [
                 {
                     "type": "host",
-                    "value": "www.expertwaermepumpe.de"
+                    "value": "www.solarexperte.ch"
                 }
             ],
-            "destination": "https://expertwaermepumpe.de/:path",
+            "destination": "https://solarexperte.ch/:path",
             "statusCode": 301
         }
     ],

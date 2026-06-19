@@ -15,69 +15,70 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
-  const canonicalDomain = headersList.get("x-irve-canonical-domain") || "www.expertwaermepumpe.de";
+  const canonicalDomain = headersList.get("x-irve-canonical-domain") || "www.solarexperte.ch";
   const path = headersList.get("x-irve-path") || "";
   const baseUrl = `https://${canonicalDomain}`;
 
   return {
-  title: {
-    template: `%s | Wärmepumpe Experte ${getCurrentYearSEO()}`,
-    default: `Wärmepumpe Experte - Installation & Aides ${getCurrentYearSEO()}`,
-  },
-  description: "Installation de pompes à chaleur air-eau et air-air. Réseau d'installateurs qualifiés RGE QualiPAC. Simulateur d'aides MaPrimeRénov' gratuit en 24h.",
-  metadataBase: new URL(baseUrl),
-  alternates: {
-    canonical: `${baseUrl}${path}`,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    title: {
+      template: "%s | Solar Experte 2026",
+      default: "Solar Experte - Photovoltaikanlagen in der Schweiz 2026",
+    },
+    description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten.",
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: `${baseUrl}${path}`,
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    title: "Wärmepumpe Experte - Installation & Remplacement Chauffage",
-    description: "Installation de pompes à chaleur air-eau et air-air partout en France. Simulateur d'éligibilité MaPrimeRénov' et devis gratuits sous 24h. Installateurs RGE QualiPAC.",
-    siteName: "Wärmepumpe Experte",
-    locale: "fr_FR",
-    type: "website",
-    url: `${baseUrl}${path}`,
-    images: [
-      {
-        url: `${baseUrl}/images/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "Wärmepumpe Experte - Installation de pompes à chaleur en France",
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Wärmepumpe Experte - Installation & Remplacement Chauffage",
-    description: "Installation de pompes à chaleur air-eau et air-air. Simulateur d'éligibilité MaPrimeRénov' gratuit.",
-    images: [`${baseUrl}/images/og-image.png`],
-  },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/favicon.png",
-    apple: "/icon.png",
-    other: [
-      {
-        rel: "icon",
-        url: "/favicon.ico",
-      }
-    ]
-  },
+    },
+    openGraph: {
+      title: "Solar Experte - Photovoltaikanlagen Schweiz",
+      description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten und sichern Sie sich die Pronovo Einmalvergütung.",
+      siteName: "Solar Experte",
+      locale: "de_CH",
+      type: "website",
+      url: `${baseUrl}${path}`,
+      images: [
+        {
+          url: `${baseUrl}/images/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "Solar Experte - Photovoltaikanlagen in der Schweiz",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Solar Experte - Photovoltaikanlagen Schweiz",
+      description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten und sichern Sie sich die Pronovo Einmalvergütung.",
+      images: [`${baseUrl}/images/og-image.png`],
+    },
+    icons: {
+      icon: "/icon.png",
+      shortcut: "/favicon.png",
+      apple: "/icon.png",
+      other: [
+        {
+          rel: "icon",
+          url: "/favicon.ico",
+        }
+      ]
+    },
   };
-}export const viewport: Viewport = {
-  themeColor: "#be123c",
-};
+}
 
+export const viewport: Viewport = {
+  themeColor: "#d97706",
+};
 
 export default function RootLayout({
   children,

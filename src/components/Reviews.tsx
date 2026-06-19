@@ -21,57 +21,54 @@ function stringHash(str: string): number {
 
 const REVIEW_POOL = [
     {
-        author: "Thomas D.",
+        author: "Thomas M.",
         templates: [
-            "Technicien RGE QualiPAC très professionnel. L'installation de mes pompes à chaleur {city} s'est faite sans encombre. Le rendement est conforme aux estimations de l'étude.",
-            "Très bon contact avec l'installateur de pompe à chaleur. Pose soignée de notre système de chauffage {city}. Explications claires pour la prise en main de la régulation. Je recommande !",
-            "Ravi de mon installation de pompe à chaleur de 11 kW. Le technicien {city} a pris le temps de tout m'expliquer et de configurer le thermostat intelligent."
+            "Sehr professioneller Solar-Installateur. Die Montage der Photovoltaikanlage in {city} verlief reibungslos.",
+            "Schnelle Offerte und detaillierte Renditeberechnung. Das Team in {city} war pünktlich und professionell.",
+            "Perfekter Service für unser Haus in {city}. Sorgfältige Montage und gute Erklärung des Wechselrichters."
         ]
     },
     {
-        author: "Lucie F.",
+        author: "Julia S.",
         templates: [
-            "Devis rapide et étude de rentabilité détaillée. L'équipe intervenue {city} a été ponctuelle et très professionnelle. Notre maison est enfin chauffée de manière économique !",
-            "Installation de notre pompe à chaleur impeccable {city}. Suivi de projet parfait et accompagnement complet pour l'obtention des aides de l'État (MaPrimeRénov').",
-            "Super rapport qualité/prix pour la pose de nos pompes à chaleur {city}. Artisans à l'écoute et très professionnels."
+            "Schnelle Offerte und detaillierte Renditeberechnung. Das Team in {city} war pünktlich und professionell.",
+            "Perfekter Service für unser Haus in {city}. Sorgfältige Montage und gute Erklärung des Wechselrichters.",
+            "Sehr zufrieden mit der Installation in {city}. Wir produzieren jetzt unseren eigenen Strom und senken unsere Rechnung drastisch."
         ]
     },
     {
-        author: "Éric L.",
+        author: "Michael K.",
         templates: [
-            "Professionnel sérieux et compétent. Installation effectuée sous 3 semaines {city}. La division de nos factures de chauffage par 3 est une vraie économie.",
-            "Un service parfait du début à la fin. Visite technique rigoureuse {city} et pose soignée. L'installation de notre PAC couvre à 100% nos besoins en chauffage.",
-            "Excellente entreprise pour l'installation de chauffage {city}. Conseils avisés sur le choix du matériel et dossier administratif géré à 100% par leurs soins."
+            "Perfekter Service für unser Haus in {city}. Sorgfältige Montage und gute Erklärung des Wechselrichters.",
+            "Sehr zufrieden mit der Installation in {city}. Wir produzieren jetzt unseren eigenen Strom und senken unsere Rechnung drastisch.",
+            "Tolle Beratung. Der Fachpartner in {city} hat sich auch um die Anmeldung für die Pronovo Förderung gekümmert."
         ]
     },
     {
-        author: "Marc-Antoine P.",
+        author: "Andreas W.",
         templates: [
-            "Très satisfait de la pose de nos pompes à chaleur {city}. Exécution impeccable, intégration soignée et explications complètes sur le thermostat connecté.",
-            "Une intervention de qualité de l'installateur RGE {city}. Tout fonctionne parfaitement, dossier de demande d'aides géré sans délai.",
-            "Super expérience pour notre projet de rénovation de chauffage {city}. Techniciens qualifiés, chantier rendu parfaitement propre."
+            "Sehr zufrieden mit der Installation in {city}. Wir produzieren jetzt unseren eigenen Strom und senken unsere Rechnung drastisch.",
+            "Tolle Beratung. Der Fachpartner in {city} hat sich auch um die Anmeldung für die Pronovo Förderung gekümmert.",
+            "Sehr professioneller Solar-Installateur. Die Montage der Photovoltaikanlage in {city} verlief reibungslos."
         ]
     },
     {
-        author: "Sophie G.",
+        author: "Sabine H.",
         templates: [
-            "Installation rapide et conforme aux attentes. L'artisan {city} était très pro et a répondu à toutes mes questions sur les primes MaPrimeRénov' et CEE.",
-            "Très satisfaite de la prestation pour notre maison {city}. Enfin un vrai professionnel qualifié RGE avec une tarification honnête.",
-            "Excellent installateur pour nos pompes à chaleur {city}. Travail soigné et réactivité exemplaire."
+            "Tolle Beratung. Der Fachpartner in {city} hat sich auch um die Anmeldung für die Pronovo Förderung gekümmert.",
+            "Sehr professioneller Solar-Installateur. Die Montage der Photovoltaikanlage in {city} verlief reibungslos.",
+            "Schnelle Offerte und detaillierte Renditeberechnung. Das Team in {city} war pünktlich und professionell."
         ]
     }
 ];
 
-export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
+export default function Reviews({ site, themeColor = 'blue' }: ReviewsProps) {
     const city = site.city;
-    const isFrance = city.toLowerCase() === "france";
-    const prep = isFrance ? "en" : "à";
-    const titlePrep = isFrance ? "en" : "à";
-    const cityWithPrep = `${prep} ${city}`;
-
+    // For FR we use "à" or "en". For others we don't really need prep in the title usually, but let's just output the city directly
+    // since the config title has trailing space: "Opiniones de Clientes en "
+    
     const seed = stringHash(city);
     
-    // Select 3 different reviewer profiles deterministically based on seed
     const index1 = seed % REVIEW_POOL.length;
     const index2 = (seed + 1) % REVIEW_POOL.length;
     const index3 = (seed + 2) % REVIEW_POOL.length;
@@ -80,7 +77,6 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
     const profile2 = REVIEW_POOL[index2];
     const profile3 = REVIEW_POOL[index3];
     
-    // Select a template for each deterministically
     const tIndex1 = (seed >> 1) % profile1.templates.length;
     const tIndex2 = (seed >> 2) % profile2.templates.length;
     const tIndex3 = (seed >> 3) % profile3.templates.length;
@@ -89,22 +85,22 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
         {
             id: 1,
             author: profile1.author,
-            text: profile1.templates[tIndex1].replace(/{city}/g, cityWithPrep),
+            text: profile1.templates[tIndex1].replace(/{city}/g, city),
             rating: 5,
             source: "Google"
         },
         {
             id: 2,
             author: profile2.author,
-            text: profile2.templates[tIndex2].replace(/{city}/g, cityWithPrep),
+            text: profile2.templates[tIndex2].replace(/{city}/g, city),
             rating: 5,
             source: "Google"
         },
         {
             id: 3,
             author: profile3.author,
-            text: profile3.templates[tIndex3].replace(/{city}/g, cityWithPrep),
-            rating: 4.9, // Make it look natural
+            text: profile3.templates[tIndex3].replace(/{city}/g, city),
+            rating: 4.9, 
             source: "Google"
         }
     ];
@@ -114,10 +110,10 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
         emerald: "text-emerald-600",
         amber: "text-amber-600",
         purple: "text-purple-600",
-        rose: "text-amber-600"
+        rose: "text-rose-600"
     };
 
-    const highlightClass = themeStyles[themeColor] || themeStyles.rose;
+    const highlightClass = themeStyles[themeColor] || themeStyles.blue;
 
     return (
         <section className="bg-white py-16 border-y border-neutral-100">
@@ -126,10 +122,10 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
                 <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-4">
                     <div>
                         <h2 className="text-2xl font-bold text-neutral-900">
-                            Avis Clients {titlePrep} <span className={highlightClass}>{site.city}</span>
+                            Kundenbewertungen in  <span className={highlightClass}>{site.city}</span>
                         </h2>
                         <p className="text-sm text-neutral-500 mt-1">
-                            Retours vérifiés de nos clients récents.
+                            Verifizierte Bewertungen von echten Kunden.
                         </p>
                     </div>
 
@@ -142,7 +138,7 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
                                     <Star key={i} fill="currentColor" size={16} />
                                 ))}
                             </div>
-                            <span className="text-xs text-neutral-500 font-medium">Excellence garantie</span>
+                            <span className="text-xs text-neutral-500 font-medium">Garantierte Exzellenz</span>
                         </div>
                         {/* Google Logo */}
                         <div className="h-8 w-8 bg-white rounded-full flex items-center justify-center shadow-sm border border-neutral-100">
@@ -164,7 +160,6 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
                             key={review.id}
                             className="p-6 bg-neutral-50 rounded-2xl border border-neutral-100 shadow-sm hover:shadow-md transition flex flex-col h-full"
                         >
-                            {/* Stars & Source */}
                             <div className="flex items-center justify-between mb-3">
                                 <div className="flex text-yellow-400 gap-0.5">
                                     {[...Array(5)].map((_, j) => (
@@ -174,12 +169,10 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
                                 <span className="text-xs text-neutral-400">{review.source}</span>
                             </div>
 
-                            {/* Content */}
                             <p className="text-neutral-700 text-sm mb-6 leading-relaxed flex-1">
                                 &ldquo;{review.text}&rdquo;
                             </p>
 
-                            {/* Author */}
                             <div className="flex items-center gap-3 mt-auto pt-4 border-t border-neutral-200/50">
                                 <div className="h-9 w-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-lg">
                                     {review.author.charAt(0)}
@@ -187,7 +180,7 @@ export default function Reviews({ site, themeColor = 'rose' }: ReviewsProps) {
                                 <div>
                                     <div className="text-sm font-bold text-neutral-900">{review.author}</div>
                                     <div className="text-xs text-neutral-500 flex items-center gap-1">
-                                        <CheckCircle2 size={10} className="text-green-500" /> Client vérifié
+                                        <CheckCircle2 size={10} className="text-green-500" /> Verifizierter Kunde
                                     </div>
                                 </div>
                             </div>

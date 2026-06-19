@@ -11,12 +11,11 @@ export default function NotFound() {
 
                 <h1 className="text-6xl font-black text-white mb-4 tracking-tighter">404</h1>
                 <h2 className="text-2xl font-bold text-slate-300 mb-6">
-                    Mince ! Cette page a disjoncté.
+                    Hoppla! Diese Seite hat wohl keine Sonnenenergie mehr.
                 </h2>
 
                 <p className="text-slate-500 mb-10 leading-relaxed">
-                    La page que vous ne cherchez n'existe pas ou a été déplacée.
-                    Mais rassurez-vous, nos installateurs sont, eux, bien disponibles.
+                    Die gesuchte Seite existiert nicht oder wurde verschoben. Aber keine Sorge, unsere Solar-Experten sind für Sie da.
                 </p>
 
                 <Link
@@ -24,7 +23,7 @@ export default function NotFound() {
                     className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:scale-[1.02]"
                 >
                     <Home size={20} />
-                    Retour à l'accueil
+                    Zurück zur Startseite
                 </Link>
             </div>
         </div>

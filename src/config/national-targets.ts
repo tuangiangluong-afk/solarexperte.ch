@@ -38,7 +38,7 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
     if (!target) return undefined;
 
     const priceDisplay = target.price_start + " CHF";
-    const priceDesc = "Kostenloses Angebot";
+    const priceDesc = "Kostenlose Offerte";
 
     return {
         slug: target.slug,
@@ -52,11 +52,11 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
         description: `${target.heroTitle} in ${target.name} (${target.zip}).`,
         geo: target.geo,
         features: [
-            "Pronovo Förderung",
-            "Schweizer Qualität",
-            "Zertifizierte Fachbetriebe",
+            "Kostenlose Beratung",
             "Garantierte Leistung",
-            "Kostenlose Analyse"
+            "Schweizer Fachpartner",
+            "Volle Garantie",
+            "Offerte in 24h"
         ],
         stations: [],
         hospitals: [],

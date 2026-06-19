@@ -137,13 +137,40 @@ export async function POST(request: Request) {
             const emoji = arbitrageStatus === 'direct_partner' ? '💎' : '🤝';
             const subject = `${emoji} Nouveau Lead [${city} - ${postalCode || 'N/A'}] - ${name}`;
             const html = `
-                <h1>Nouveau Lead - ${domain}</h1>
-                <p><strong>Pays / Niche :</strong> ${currentCountry} / ${currentNiche}</p>
-                <p><strong>Statut Routage :</strong> ${arbitrageStatus}</p>
-                <p><strong>Nom :</strong> ${name}</p>
-                <p><strong>Email :</strong> ${email}</p>
-                <p><strong>Téléphone :</strong> ${phone}</p>
-                <p><strong>Détails :</strong> <pre>${JSON.stringify(metadata, null, 2)}</pre></p>
+                <h1>Nouveau Lead - ${currentNiche.toUpperCase()}</h1>
+                <p><strong>Domaine :</strong> ${domain} (${city} - ${postalCode || 'N/A'})</p>
+                
+                <div style="background-color: ${arbitrageStatus === 'direct_partner' ? '#f0fdf4' : '#f8fafc'}; border: 1.5px solid ${arbitrageStatus === 'direct_partner' ? '#22c55e' : '#cbd5e1'}; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                    <h2 style="margin-top:0; color: ${arbitrageStatus === 'direct_partner' ? '#166534' : '#334155'};">
+                        Scoring & Routage : ${arbitrageStatus === 'direct_partner' ? '💎 PARTENAIRE DIRECT' : '✉️ REVENDU (' + arbitrageStatus.toUpperCase() + ')'}
+                    </h2>
+                    <p><strong>Score :</strong> ${leadScore} / 100</p>
+                    <p><strong>Statut Arbitrage :</strong> ${arbitrageStatus}</p>
+                    <p><strong>Pays :</strong> ${currentCountry}</p>
+                </div>
+
+                <h2>Informations de contact</h2>
+                <ul>
+                    <li><strong>Nom :</strong> ${name}</li>
+                    <li><strong>Email :</strong> ${email}</li>
+                    <li><strong>Téléphone :</strong> ${phone}</li>
+                </ul>
+
+                <h2>Critères de Qualification</h2>
+                <ul>
+                    ${Object.entries(metadata)
+                        .filter(([k]) => !['attribution', 'score', 'arbitrage_status', 'niche', 'country', 'source'].includes(k))
+                        .map(([k, v]) => `<li><strong>${k.replace(/_/g, ' ')} :</strong> ${v || 'N/A'}</li>`)
+                        .join('\n                    ')}
+                </ul>
+
+                <h2>Attribution Marketing</h2>
+                <ul>
+                    <li><strong>Source / Medium :</strong> ${attribution?.source || 'direct'} / ${attribution?.medium || 'direct'}</li>
+                    ${attribution?.campaign ? `<li><strong>Campagne :</strong> ${attribution.campaign}</li>` : ''}
+                    ${attribution?.term ? `<li><strong>Mot-clé recherché :</strong> ${attribution.term}</li>` : ''}
+                    ${attribution?.landing_page ? `<li><strong>Page de capture :</strong> ${attribution.landing_page}</li>` : ''}
+                </ul>
             `;
 
             await resend.emails.send({

@@ -43,7 +43,7 @@ export async function sendLeadToViteUnDevis(payload: VUDLeadPayload): Promise<VU
         token: token,
         cat_id: payload.cat_id,
         code_postal: payload.cp_projet,
-        pays: payload.pays || 'fr',
+        pays: payload.pays || 'ch',
         description: payload.description,
         cpl_mini: '0'
       })
@@ -81,7 +81,7 @@ export async function sendLeadToViteUnDevis(payload: VUDLeadPayload): Promise<VU
         ville: payload.ville,
         cp_projet: payload.cp_projet,
         ville_projet: payload.ville_projet,
-        pays: payload.pays || 'fr',
+        pays: payload.pays || 'ch',
         tp: String(payload.tp),
         type_bien: String(payload.type_bien),
         situation: String(payload.situation),

@@ -45,7 +45,7 @@ export default function FloatingCTA({
                 <button
                     onClick={scrollToTop}
                     className="bg-white text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 hover:bg-slate-50 transition-all transform hover:scale-105"
-                    aria-label="Retour en haut"
+                    aria-label="Nach oben"
                 >
                     <ArrowUp className="w-5 h-5" />
                 </button>

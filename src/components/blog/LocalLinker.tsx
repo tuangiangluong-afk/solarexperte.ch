@@ -65,7 +65,7 @@ export default function LocalLinker() {
                 </div>
                 <div>
                     <h3 className="font-bold text-lg">Installateur Chauffage / PAC Local</h3>
-                    <p className="text-amber-200 text-xs">Trouvez votre expert de proximité</p>
+                    <p className="text-amber-200 text-xs">Finden Sie Ihren lokalen Experten</p>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function LocalLinker() {
                         <CheckCircle className="text-green-400 shrink-0 mt-0.5" size={18} />
                         <div>
                             <p className="text-sm font-medium text-green-100 mb-2">
-                                Bonne nouvelle ! Nous avons un installateur RGE partenaire à <span className="text-white font-bold">{result.city}</span>.
+                                Gute Nachrichten! Wir haben einen zertifizierten Solarpartner in <span className="text-white font-bold">{result.city}</span>.
                             </p>
                             <Link
                                 href={result.url}

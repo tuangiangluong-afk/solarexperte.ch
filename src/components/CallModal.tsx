@@ -83,7 +83,7 @@ export default function CallModal({
                             Wärmepumpe Experte {cityName}
                         </h3>
                         <p className="text-white/90 font-medium">
-                            Installation & Devis gratuit
+                            Installation & kostenlose offerte
                         </p>
                     </div>
 

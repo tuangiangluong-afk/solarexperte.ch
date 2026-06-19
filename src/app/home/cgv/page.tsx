@@ -50,7 +50,7 @@ export default function CGV() {
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">2. Demandes de Devis et Tarifs</h2>
                         <ul className="list-disc pl-5 space-y-2">
                             <li><strong>Demande de mise en relation :</strong> L'utilisateur remplit un formulaire précisant son besoin (puissance souhaitée, consommation électrique moyenne, système de chauffage actuel, simulateur d'aides).</li>
-                            <li><strong>Devis gratuit :</strong> Le service de mise en relation et l'établissement des devis par nos partenaires sont gratuits pour l'utilisateur.</li>
+                            <li><strong>kostenlose offerte :</strong> Le service de mise en relation et l'établissement des devis par nos partenaires sont gratuits pour l'utilisateur.</li>
                             <li><strong>Tarification des travaux :</strong> Le prix final de l'installation est déterminé par l'installateur RGE QualiPAC partenaire après visite technique. Les estimations de rentabilité fournies sur le site sont indicatives.</li>
                         </ul>
                     </div>

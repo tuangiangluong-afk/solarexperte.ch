@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | Solar Experte`,
       default: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
     },
-    description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
+    description: "Vergleichen Sie Solar-Installateure in der Schweiz. Erhalten Sie 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Förderung.",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: `${baseUrl}${path}`,
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
-      description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
+      description: "Vergleichen Sie Solar-Installateure in der Schweiz. Erhalten Sie 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Förderung.",
       siteName: "Solar Experte",
       locale: "de_CH",
       type: "website",
@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
-      description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
+      description: "Vergleichen Sie Solar-Installateure in der Schweiz. Erhalten Sie 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Förderung.",
       images: [`${baseUrl}/images/og-image.png`],
     },
     icons: {

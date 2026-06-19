@@ -9,7 +9,7 @@ interface FloatingCTAProps {
 }
 
 export default function FloatingCTA({
-    label = "Devis gratuit",
+    label = "kostenlose offerte",
     showAfterScroll = 400
 }: FloatingCTAProps) {
     const [isVisible, setIsVisible] = useState(false);

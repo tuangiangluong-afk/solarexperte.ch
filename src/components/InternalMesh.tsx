@@ -13,7 +13,6 @@ interface InternalMeshProps {
 export function InternalMesh({ city, config }: InternalMeshProps) {
     const neighborhoods = (config as any)?.neighborhoods || (config as any)?.quartiers || [];
 
-    // Geographically nearby partner cities for linking
     const rawNearby = config ? getNearbyCities(config.slug, 12) : [];
     const slugs = new Set();
     const nearbyCities = rawNearby.filter(city => {
@@ -22,14 +21,13 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
         return true;
     });
 
-    // Varied Anchor Logic
     function getVariedAnchor(name: string, index: number) {
         const variations = [
-            `Pompe à chaleur ${name}`,
-            `Installateur PAC ${name}`,
-            `Chauffage ${name}`,
-            `Remplacement chaudière ${name}`,
-            `Artisan RGE QualiPAC ${name}`
+            `Solaranlage ${name}`,
+            `Photovoltaik Installateur ${name}`,
+            `Solarstrom ${name}`,
+            `Solar Fachpartner ${name}`,
+            `Solar Experten ${name}`
         ];
         return variations[index % variations.length];
     }
@@ -38,16 +36,15 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
         <section className="bg-neutral-900 border-t border-white/5 py-16 px-6">
             <div className="mx-auto max-w-7xl">
                 <div className="grid md:grid-cols-4 gap-12 text-left">
-                    {/* 1. Services */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">Nos Services</h4>
+                        <h4 className="text-white font-bold mb-6 text-lg">Unsere Dienstleistungen</h4>
                         <ul className="space-y-3">
                             {[
-                                "Installation Pompe à Chaleur Air-Eau",
-                                "Installation PAC Air-Air (Clim Réversible)",
-                                "Remplacement Chaudière Fioul / Gaz",
-                                "Maintenance & Dépannage PAC",
-                                "Ballon Thermodynamique"
+                                "Photovoltaikanlagen",
+                                "Stromspeicher & Batterien",
+                                "Ladestationen (Wallbox)",
+                                "Wartung & Reinigung",
+                                "Pronovo Förderberatung"
                             ].map((service, i) => (
                                 <li key={i}>
                                     <a href="#simulateur" className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
@@ -59,9 +56,8 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                         </ul>
                     </div>
 
-                    {/* 2. Villes à Proximité */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">Agences à Proximité</h4>
+                        <h4 className="text-white font-bold mb-6 text-lg">Fachpartner in der Nähe</h4>
                         <ul className="space-y-3">
                             {nearbyCities.slice(0, 6).map((city, i) => (
                                 <li key={city.slug}>
@@ -77,10 +73,9 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                         </ul>
                     </div>
 
-                    {/* 3. Quartiers / Zones (SEO Local) */}
                     <div>
                         <h4 className="text-white font-bold mb-6 text-lg">
-                            {config ? `Quartiers de ${config.city}` : "Zones d'intervention"}
+                            {config ? `Quartiere von ${config.city}` : "Einsatzgebiete"}
                         </h4>
                         <ul className="space-y-3">
                             {neighborhoods.slice(0, 8).map((quartier: string, i: number) => (
@@ -92,22 +87,19 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                                 </li>
                             ))}
                             {neighborhoods.length === 0 && (
-                                <li className="text-neutral-500 text-sm italic">Ganz {config?.city || "France"} et agglomération</li>
+                                <li className="text-neutral-500 text-sm italic">Ganzer Kanton und Umgebung</li>
                             )}
                         </ul>
                     </div>
 
-                    {/* 4. Guides & Aides */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">
-                            Documentation &amp; Conseils
-                        </h4>
+                        <h4 className="text-white font-bold mb-6 text-lg">Ratgeber & Hilfe</h4>
                         <ul className="space-y-3">
                             {[
-                                { label: "Aides MaPrimeRénov' PAC 2026", href: "/guides" },
-                                { label: "Économies avec une PAC", href: "/guides" },
-                                { label: "Prix d'une Pompe à Chaleur", href: "/guides" },
-                                { label: "Tous nos guides", href: "/guides" }
+                                { label: "Pronovo Einmalvergütung", href: "/guides/pronovo-foerderung-solaranlagen" },
+                                { label: "Rendite Photovoltaik", href: "/guides/rendite-solaranlage" },
+                                { label: "Kosten einer Solaranlage", href: "/guides/kosten-solaranlage" },
+                                { label: "Alle Ratgeber", href: "/guides" }
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href={link.href} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">

@@ -1,17 +1,17 @@
 "use client";
-
+ 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Cookie } from 'lucide-react';
-
+ 
 interface CookieBannerProps {
     slug: string;
     cityName: string;
 }
-
+ 
 const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
     const [showBanner, setShowBanner] = useState(false);
-
+ 
     useEffect(() => {
         const consent = localStorage.getItem('cookie-consent');
         if (!consent) {
@@ -19,19 +19,19 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
             return () => clearTimeout(timer);
         }
     }, []);
-
+ 
     const acceptAll = () => {
         localStorage.setItem('cookie-consent', 'accepted');
         setShowBanner(false);
     };
-
+ 
     const rejectAll = () => {
         localStorage.setItem('cookie-consent', 'rejected');
         setShowBanner(false);
     };
-
+ 
     if (!showBanner) return null;
-
+ 
     return (
         <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-neutral-900/95 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 shadow-2xl shadow-amber-500/10 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex items-start gap-4">
@@ -49,7 +49,7 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
                             Mehr erfahren
                         </Link>
                     </p>
-
+ 
                     <div className="flex flex-col gap-2">
                         <button
                             onClick={acceptAll}
@@ -69,5 +69,5 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
         </div>
     );
 };
-
+ 
 export default CookieBanner;

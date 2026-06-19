@@ -3,11 +3,13 @@ import { Resend } from 'resend';
 import { createSupabaseAdmin } from '@/lib/supabase-server';
 import { getSiteConfig } from '@/lib/sites-config';
 import { sendLeadToViteUnDevis } from '@/lib/viteundevis';
+import { sendLeadToHabitissimo } from '@/lib/habitissimo';
+import { sendLeadToDAA } from '@/lib/daa';
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        console.log("📥 [API/LEADS/DE] Received body:", body);
+        console.log("📥 [API/LEADS] Received body:", body);
         const {
             name, email, phone, city, postalCode, domain,
             projectType, monthlyBill, roofType, solarLocation,
@@ -22,52 +24,71 @@ export async function POST(request: Request) {
         }
 
         let leadScore = body.leadScore || 60;
-        let arbitrageStatus = 'direct_partner';
+        const currentCountry = 'CH';
+        const currentNiche = 'solar';
         
-        const currentCountry = ('DE' as string);
-        // Under 55 and not FR Béton -> forward to ViteUnDevis
-        if (leadScore < 55 && currentCountry === 'FR') {
+        // ----------------------------------------------------
+        // ARBITRAGE GEOGRAPHIQUE
+        // ----------------------------------------------------
+        let arbitrageStatus = 'direct_partner';
+        let arbitrageResult: any = null;
+
+        if (currentCountry === 'FR' && leadScore < 55) {
             arbitrageStatus = 'vite_un_devis';
+        } else if (currentCountry === 'ES' || currentCountry === 'MX') {
+            arbitrageStatus = 'habitissimo';
+        } else if (currentCountry === 'DE' || currentCountry === 'CH' || currentCountry === 'AT') {
+            arbitrageStatus = 'daa';
         }
 
-        let vudResult = null;
+        console.log(`⚖️ [ARBITRAGE] Pays: ${currentCountry} | Niche: ${currentNiche} | Status: ${arbitrageStatus}`);
+
+        // 1. VITEUNDEVIS (FR)
         if (arbitrageStatus === 'vite_un_devis') {
-            console.log("📡 [ViteUnDevis] Forwarding lead to ViteUnDevis API...");
+            console.log("📡 [ViteUnDevis] Forwarding lead...");
             const nameParts = (name || '').trim().split(/\s+/);
             const prenom = nameParts[0] || 'Client';
             const nom = nameParts.slice(1).join(' ') || 'Inconnu';
             
             const vudPayload = {
-                nom,
-                prenom,
-                email,
-                tel: phone,
-                cp: postalCode,
-                ville: city,
-                cp_projet: postalCode,
-                ville_projet: city,
-                pays: 'fr',
-                adresse1: 'Adresse non communiquee',
-                tp: 1,
-                type_bien: 2,
-                situation: 1,
-                delais: 2,
-                description: `Projet de béton décoratif. Type de projet: ${projectType || 'N/A'}. Surface: ${monthlyBill || 'N/A'}. Camion toupie: ${roofType || 'N/A'}. Finition: ${solarLocation || 'N/A'}.`,
-                cat_id: '4',
-                site_name: domain || 'expertwaermepumpe.de'
+                nom, prenom, email, tel: phone, cp: postalCode, ville: city,
+                cp_projet: postalCode, ville_projet: city, pays: 'fr', adresse1: 'Adresse non communiquée',
+                tp: 1, type_bien: 2, situation: 1, delais: 2,
+                description: `Projet: ${projectType || 'N/A'}. Surface: ${monthlyBill || 'N/A'}. Generé via ${domain}`,
+                cat_id: '163',
+                site_name: domain || 'solarexperte.ch'
             };
-            
             try {
-                vudResult = await sendLeadToViteUnDevis(vudPayload);
-            } catch (err) {
-                console.error("❌ Failed to forward to ViteUnDevis:", err);
-            }
+                arbitrageResult = await sendLeadToViteUnDevis(vudPayload);
+            } catch (err) { console.error("❌ Failed to forward to ViteUnDevis:", err); }
         }
 
-        const apiKey = process.env.RESEND_API_KEY;
-        const resend = apiKey ? new Resend(apiKey) : null;
+        // 2. HABITISSIMO (ES / MX)
+        if (arbitrageStatus === 'habitissimo') {
+            console.log("📡 [Habitissimo] Forwarding lead...");
+            const habitissimoPayload = {
+                contact: { name, email, phone, zip_code: postalCode, city: city },
+                project: { category: currentNiche, description: `Demande de devis générée depuis ${domain}. Projet: ${projectType}`, timeline: "Asap" }
+            };
+            try {
+                arbitrageResult = await sendLeadToHabitissimo(habitissimoPayload);
+            } catch (err) { console.error("❌ Failed to forward to Habitissimo:", err); }
+        }
 
-        // 1. SAVE TO DATABASE (Supabase)
+        // 3. DAA (DE / CH / AT)
+        if (arbitrageStatus === 'daa') {
+            console.log("📡 [DAA] Forwarding lead...");
+            const nameParts = (name || '').trim().split(/\s+/);
+            const daaPayload = {
+                customer: { first_name: nameParts[0] || 'Kunde', last_name: nameParts.slice(1).join(' ') || 'Unbekannt', email, phone, zip: postalCode, city },
+                inquiry: { trade: currentNiche, notes: `Projekt: ${projectType}. Generiert via ${domain}` }
+            };
+            try {
+                arbitrageResult = await sendLeadToDAA(daaPayload);
+            } catch (err) { console.error("❌ Failed to forward to DAA:", err); }
+        }
+
+        // 4. SAVE TO DATABASE (Supabase)
         const metadata = {
             project_type: projectType,
             monthly_bill: monthlyBill,
@@ -77,8 +98,8 @@ export async function POST(request: Request) {
             attribution: attribution || { source: 'direct', medium: 'direct' },
             score: leadScore,
             arbitrage_status: arbitrageStatus,
-            niche: 'pac',
-            country: 'DE'
+            niche: currentNiche,
+            country: currentCountry
         };
 
         const supabase = createSupabaseAdmin();
@@ -87,72 +108,57 @@ export async function POST(request: Request) {
         const department = siteConfig?.department || (postalCode ? postalCode.substring(0, 2) : null);
 
         const leadPayload: any = {
-            name,
-            email,
-            phone,
-            city,
-            postal_code: postalCode,
-            tenant_id: domain || 'expertwaermepumpe.de',
-            type: 'pac_lead',
+            name, email, phone, city, postal_code: postalCode,
+            tenant_id: domain || 'solarexperte.ch',
+            type: `${currentNiche}_lead`,
             housing_type: projectType,
             status: 'new',
             region: region,
             department: department,
             message: JSON.stringify(metadata, null, 2),
-            niche: 'pac',
+            niche: currentNiche,
             arbitrage_status: arbitrageStatus,
             score: leadScore,
-            country: 'DE'
+            country: currentCountry
         };
 
-        // Graceful retry insertion if country column is not created in DB yet
-        const { error: dbError } = await supabase
-            .from('leads')
-            .insert(leadPayload);
-
-        if (dbError && dbError.code === '42703') { // undefined_column error
-            console.log("⚠️ [Supabase] 'country' column does not exist, retrying without it...");
+        const { error: dbError } = await supabase.from('leads').insert(leadPayload);
+        if (dbError && dbError.code === '42703') { 
+            console.log("⚠️ [Supabase] 'country' column missing, retrying without it...");
             delete leadPayload.country;
-            const { error: retryError } = await supabase
-                .from('leads')
-                .insert(leadPayload);
-            if (retryError) {
-                console.error('Supabase DB Retry Error:', retryError);
-            }
-        } else if (dbError) {
-            console.error('Supabase DB Error:', dbError);
+            await supabase.from('leads').insert(leadPayload);
         }
 
-        // 2. SEND NOTIFICATION EMAIL (Resend)
+        // 5. SEND NOTIFICATION EMAIL (Resend)
+        const apiKey = process.env.RESEND_API_KEY;
+        const resend = apiKey ? new Resend(apiKey) : null;
         if (resend) {
-            const subject = `💎 ${arbitrageStatus === 'direct_partner' ? '💎' : '✉️'} Nouveau Lead [${city} - ${postalCode || 'N/A'}] - ${name}`;
+            const siteName = siteConfig?.name || domain;
+            const emoji = arbitrageStatus === 'direct_partner' ? '💎' : '🤝';
+            const subject = `${emoji} Nouveau Lead [${city} - ${postalCode || 'N/A'}] - ${name}`;
             const html = `
                 <h1>Nouveau Lead - ${domain}</h1>
-                <p><strong>Country / Niche :</strong> DE / pac</p>
+                <p><strong>Pays / Niche :</strong> ${currentCountry} / ${currentNiche}</p>
+                <p><strong>Statut Routage :</strong> ${arbitrageStatus}</p>
                 <p><strong>Nom :</strong> ${name}</p>
                 <p><strong>Email :</strong> ${email}</p>
                 <p><strong>Téléphone :</strong> ${phone}</p>
-                <p><strong>Détails :</strong> ${JSON.stringify(metadata, null, 2)}</p>
+                <p><strong>Détails :</strong> <pre>${JSON.stringify(metadata, null, 2)}</pre></p>
             `;
 
             await resend.emails.send({
-                from: 'Wärmepumpe Experte <contact@expertwaermepumpe.de>',
-                to: ['bonjour@expertwaermepumpe.de'],
+                from: `${siteName} <contact@${domain}>`,
+                to: [`bonjour@${domain}`],
                 subject,
                 html
             });
         }
 
-        const vudDetails = vudResult?.devis_data?.devis_id ? {
-            devis_id: vudResult.devis_data.devis_id,
-            devis_hash: vudResult.devis_data.devis_hash || ''
-        } : null;
-
         return NextResponse.json({ 
             success: true, 
             score: leadScore, 
             status: arbitrageStatus,
-            vud: vudDetails
+            arbitrage_result: arbitrageResult
         });
 
     } catch (e: any) {

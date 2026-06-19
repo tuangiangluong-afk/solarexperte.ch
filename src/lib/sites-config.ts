@@ -82,125 +82,185 @@ const _hubConfig: SiteConfig = {
 };
 
 export const SITES: Record<string, SiteConfig> = {
-    "city-1": {
+    "z-rich": {
         ..._hubConfig,
-        slug: "city-1",
-        city: "City 1",
-        region: "Region 1"
+        slug: "z-rich",
+        city: "Zürich",
+        postalCode: "8001",
+        region: "Zürich",
+        department: "Zürich",
+        coordinates: { lat: 47.3769, lng: 8.5417 }
     },
-    "city-2": {
+    "gen-ve": {
         ..._hubConfig,
-        slug: "city-2",
-        city: "City 2",
-        region: "Region 1"
+        slug: "gen-ve",
+        city: "Genève",
+        postalCode: "1201",
+        region: "Genève",
+        department: "Genève",
+        coordinates: { lat: 46.2044, lng: 6.1432 }
     },
-    "city-3": {
+    "basel": {
         ..._hubConfig,
-        slug: "city-3",
-        city: "City 3",
-        region: "Region 1"
+        slug: "basel",
+        city: "Basel",
+        postalCode: "4051",
+        region: "Basel-Stadt",
+        department: "Basel-Stadt",
+        coordinates: { lat: 47.5596, lng: 7.5886 }
     },
-    "city-4": {
+    "lausanne": {
         ..._hubConfig,
-        slug: "city-4",
-        city: "City 4",
-        region: "Region 1"
+        slug: "lausanne",
+        city: "Lausanne",
+        postalCode: "1003",
+        region: "Vaud",
+        department: "Vaud",
+        coordinates: { lat: 46.5197, lng: 6.6323 }
     },
-    "city-5": {
+    "bern": {
         ..._hubConfig,
-        slug: "city-5",
-        city: "City 5",
-        region: "Region 1"
+        slug: "bern",
+        city: "Bern",
+        postalCode: "3011",
+        region: "Bern",
+        department: "Bern",
+        coordinates: { lat: 46.948, lng: 7.4474 }
     },
-    "city-6": {
+    "winterthur": {
         ..._hubConfig,
-        slug: "city-6",
-        city: "City 6",
-        region: "Region 1"
+        slug: "winterthur",
+        city: "Winterthur",
+        postalCode: "8400",
+        region: "Zürich",
+        department: "Winterthur",
+        coordinates: { lat: 47.4982, lng: 8.7241 }
     },
-    "city-7": {
+    "luzern": {
         ..._hubConfig,
-        slug: "city-7",
-        city: "City 7",
-        region: "Region 1"
+        slug: "luzern",
+        city: "Luzern",
+        postalCode: "6003",
+        region: "Luzern",
+        department: "Luzern",
+        coordinates: { lat: 47.0502, lng: 8.3093 }
     },
-    "city-8": {
+    "st-gallen": {
         ..._hubConfig,
-        slug: "city-8",
-        city: "City 8",
-        region: "Region 1"
+        slug: "st-gallen",
+        city: "St. Gallen",
+        postalCode: "9000",
+        region: "St. Gallen",
+        department: "St. Gallen",
+        coordinates: { lat: 47.4245, lng: 9.3767 }
     },
-    "city-9": {
+    "lugano": {
         ..._hubConfig,
-        slug: "city-9",
-        city: "City 9",
-        region: "Region 1"
+        slug: "lugano",
+        city: "Lugano",
+        postalCode: "6900",
+        region: "Ticino",
+        department: "Lugano",
+        coordinates: { lat: 46.0037, lng: 8.9511 }
     },
-    "city-10": {
+    "biel-bienne": {
         ..._hubConfig,
-        slug: "city-10",
-        city: "City 10",
-        region: "Region 1"
+        slug: "biel-bienne",
+        city: "Biel/Bienne",
+        postalCode: "2502",
+        region: "Bern",
+        department: "Biel",
+        coordinates: { lat: 47.1368, lng: 7.2468 }
     },
-    "city-11": {
+    "thun": {
         ..._hubConfig,
-        slug: "city-11",
-        city: "City 11",
-        region: "Region 1"
+        slug: "thun",
+        city: "Thun",
+        postalCode: "3600",
+        region: "Bern",
+        department: "Thun",
+        coordinates: { lat: 46.757, lng: 7.6276 }
     },
-    "city-12": {
+    "bellinzona": {
         ..._hubConfig,
-        slug: "city-12",
-        city: "City 12",
-        region: "Region 1"
+        slug: "bellinzona",
+        city: "Bellinzona",
+        postalCode: "6500",
+        region: "Ticino",
+        department: "Bellinzona",
+        coordinates: { lat: 46.1913, lng: 9.0238 }
     },
-    "city-13": {
+    "k-niz": {
         ..._hubConfig,
-        slug: "city-13",
-        city: "City 13",
-        region: "Region 1"
+        slug: "k-niz",
+        city: "Köniz",
+        postalCode: "3098",
+        region: "Bern",
+        department: "Bern",
+        coordinates: { lat: 46.9248, lng: 7.4124 }
     },
-    "city-14": {
+    "fribourg": {
         ..._hubConfig,
-        slug: "city-14",
-        city: "City 14",
-        region: "Region 1"
+        slug: "fribourg",
+        city: "Fribourg",
+        postalCode: "1700",
+        region: "Fribourg",
+        department: "Fribourg",
+        coordinates: { lat: 46.8065, lng: 7.162 }
     },
-    "city-15": {
+    "schaffhausen": {
         ..._hubConfig,
-        slug: "city-15",
-        city: "City 15",
-        region: "Region 1"
+        slug: "schaffhausen",
+        city: "Schaffhausen",
+        postalCode: "8200",
+        region: "Schaffhausen",
+        department: "Schaffhausen",
+        coordinates: { lat: 47.6973, lng: 8.6349 }
     },
-    "city-16": {
+    "chur": {
         ..._hubConfig,
-        slug: "city-16",
-        city: "City 16",
-        region: "Region 1"
+        slug: "chur",
+        city: "Chur",
+        postalCode: "7000",
+        region: "Graubünden",
+        department: "Plessur",
+        coordinates: { lat: 46.8503, lng: 9.5315 }
     },
-    "city-17": {
+    "vernier": {
         ..._hubConfig,
-        slug: "city-17",
-        city: "City 17",
-        region: "Region 1"
+        slug: "vernier",
+        city: "Vernier",
+        postalCode: "1214",
+        region: "Genève",
+        department: "Genève",
+        coordinates: { lat: 46.2167, lng: 6.0833 }
     },
-    "city-18": {
+    "uster": {
         ..._hubConfig,
-        slug: "city-18",
-        city: "City 18",
-        region: "Region 1"
+        slug: "uster",
+        city: "Uster",
+        postalCode: "8610",
+        region: "Zürich",
+        department: "Uster",
+        coordinates: { lat: 47.3486, lng: 8.718 }
     },
-    "city-19": {
+    "sion": {
         ..._hubConfig,
-        slug: "city-19",
-        city: "City 19",
-        region: "Region 1"
+        slug: "sion",
+        city: "Sion",
+        postalCode: "1950",
+        region: "Valais",
+        department: "Sion",
+        coordinates: { lat: 46.2293, lng: 7.3585 }
     },
-    "city-20": {
+    "neuch-tel": {
         ..._hubConfig,
-        slug: "city-20",
-        city: "City 20",
-        region: "Region 1"
+        slug: "neuch-tel",
+        city: "Neuchâtel",
+        postalCode: "2000",
+        region: "Neuchâtel",
+        department: "Neuchâtel",
+        coordinates: { lat: 46.9929, lng: 6.931 }
     },
     "solarexperte.ch": _hubConfig,
     "www.solarexperte.ch": _hubConfig,

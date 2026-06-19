@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         }
 
         let leadScore = body.leadScore || 60;
-        const currentCountry = 'CH';
+        const currentCountry = 'CH' as string;
         const currentNiche = 'solar';
         
         // ----------------------------------------------------

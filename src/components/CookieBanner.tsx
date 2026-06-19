@@ -13,10 +13,8 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
     const [showBanner, setShowBanner] = useState(false);
 
     useEffect(() => {
-        // Check if user has already explicitly accepted or rejected
         const consent = localStorage.getItem('cookie-consent');
         if (!consent) {
-            // Small delay for animation entrance
             const timer = setTimeout(() => setShowBanner(true), 1000);
             return () => clearTimeout(timer);
         }
@@ -42,13 +40,13 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
                 </div>
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-white mb-2">
-                        Confidentialité
+                        Privatsphäre & Cookies
                     </h3>
                     <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
-                        Nous utilisons des cookies pour améliorer votre expérience sur le site de {cityName}. Pas de pistage intrusif, promis.
+                        Wir verwenden Cookies, um Ihre Erfahrung auf der Website von {cityName} zu verbessern. Kein aufdringliches Tracking, versprochen.
                         {' '}
                         <Link href="/mentions-legales" className="underline text-amber-400 hover:text-amber-300 transition">
-                            En savoir plus
+                            Mehr erfahren
                         </Link>
                     </p>
 
@@ -57,13 +55,13 @@ const CookieBanner = ({ slug, cityName }: CookieBannerProps) => {
                             onClick={acceptAll}
                             className="w-full py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg transition-colors"
                         >
-                            Tout accepter
+                            ${cityName ? "Alle akzeptieren" : "Alle akzeptieren"}
                         </button>
                         <button
                             onClick={rejectAll}
                             className="w-full py-2 bg-white/5 text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
                         >
-                            Continuer sans accepter
+                            Ohne Einwilligung fortfahren
                         </button>
                     </div>
                 </div>

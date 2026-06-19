@@ -1,7 +1,3 @@
-/**
- * Site Configuration for Wärmepumpe Experte
- */
-
 export interface SiteConfig {
     slug: string;
     domain: string;
@@ -38,56 +34,51 @@ export interface SiteConfig {
 }
 
 const TEMPLATE_CERTIFICATIONS = [
-    "VDI 4645",
-    "BAFA gelistet",
-    "Fachbetrieb Innung"
+    "Zertifizierte Fachpartner",
+    "Meyer Burger Module",
+    "Garantierte Leistung"
 ];
 const TEMPLATE_AIDES = [
-    "BAFA Förderung (bis zu 70%)",
-    "KfW-Heizungsförderung",
-    "Klimafreundliche Wärme"
+    "Kantonale Förderung",
+    "Steuerlicher Abzug",
+    "Pronovo EIV"
 ];
 const TEMPLATE_FEATURES = [
-    "Kostenloses Angebot in 24h",
-    "Deutsche Qualität & Zuverlässigkeit",
-    "BAFA Förderung komplett geregelt",
-    "Erfahrene Wärmepumpen-Installateure",
-    "Garantierter Festpreis"
+    "Kostenlose Ertragsanalyse",
+    "Schnelle Montage",
+    "Wechselrichter & Speicher"
 ];
 
 const _hubConfig: SiteConfig = {
     slug: "home",
-    domain: 'solarexperte.ch',
-    city: "Deutschland",
+    domain: "solarexperte.ch",
+    city: "Schweiz",
     postalCode: "",
     department: "",
     region: "National",
-    name: 'Solar Experte',
-    phoneNumber: "01 84 80 00 00",
-    email: 'kontakt@solarexperte.ch',
-    targetType: "MIXED",
+    name: "Solar Experte",
+    phoneNumber: "044 500 00 00",
+    email: "kontakt@solarexperte.ch",
+    targetType: "SOLAR",
     priceRange: 'STANDARD',
     theme: 'premium',
-    heroImage: "/images/generated/pac-hero.webp",
-    description: "Deutschlands führendes Portal für Wärmepumpen-Installateure. Kostenloses Angebot und BAFA Förderung.",
+    heroImage: "/images/generated/solar-hero.webp",
+    description: "Top-Installateure für Photovoltaik in der Schweiz. Sichern Sie sich staatliche Förderungen.",
     meta: {
-        title: "Wärmepumpe Experte | Wärmepumpe & BAFA Förderung DE",
-        description: "Wärmepumpen-Installation für Ihr Eigenheim. Angebote einholen und staatliche Zuschüsse sichern."
+        title: "Solar Experte | Angebote vergleichen",
+        description: "Top-Installateure für Photovoltaik in der Schweiz. Sichern Sie sich staatliche Förderungen."
     },
     certifications: TEMPLATE_CERTIFICATIONS,
     aidesDisponibles: TEMPLATE_AIDES,
     features: TEMPLATE_FEATURES,
     localKeywords: [
-    "waermepumpe installieren",
-    "waermepumpe kaufen preis",
-    "waermepumpe foerderung bafa",
-    "luft wasser waermepumpe",
-    "waermepumpen anbieter"
+    "solaranlage",
+    "photovoltaik"
 ],
     quartiers: [],
     coproprietes: [],
     centresCommerciaux: [],
-    coordinates: { lat: 52.52, lng: 13.405 }
+    coordinates: { lat: 46.22, lng: 2.21 }
 };
 
 export const SITES: Record<string, SiteConfig> = {

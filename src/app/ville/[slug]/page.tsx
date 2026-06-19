@@ -1,10 +1,9 @@
 import { getCityByCleanSlug, CITIES } from "@/lib/db";
 import { getPseoContent } from "@/lib/pseo";
-import { CheckCircle, Zap, TrendingDown, Home, Building2, Briefcase, Award, ArrowRight, Shield, Calendar } from "lucide-react";
+import { CheckCircle, Award } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
 import Header from "@/components/Header";
 import SchemaJSON from "@/components/SchemaJSON";
@@ -14,15 +13,11 @@ import { slugify } from "@/lib/slugify";
 import { InternalMesh } from "@/components/InternalMesh";
 import { VillesVoisines } from "@/components/VillesVoisines";
 import { LocalFAQ } from "@/components/LocalFAQ";
+import RealizationsGrid from "@/components/RealizationsGrid";
 
-// Dynamically generate for ALL cities (Owned + Partner)
 export async function generateStaticParams() {
     return Object.values(CITIES).map(city => ({ slug: slugify(city.city) }));
 }
-
-// ============================================
-// METADATA
-// ============================================
 
 export async function generateMetadata({
     params,
@@ -36,13 +31,11 @@ export async function generateMetadata({
         return {};
     }
 
-    // Dynamic Meta via pSEO
     const pseo = await getPseoContent(site);
 
     return {
         title: pseo.meta_title,
         description: pseo.meta_description,
-        // Canonical is handled by root layout.tsx
         alternates: {
             canonical: `https://www.solarexperte.ch/ville/${resolvedParams.slug}`,
         },
@@ -55,7 +48,7 @@ export async function generateMetadata({
                     url: site.heroImage,
                     width: 1200,
                     height: 630,
-                    alt: `Photovoltaikanlage in ${site.city}`
+                    alt: `${site.name} ${site.city}`
                 }
             ],
             locale: "de_CH",
@@ -68,10 +61,6 @@ export async function generateMetadata({
     };
 }
 
-// ============================================
-// PAGE COMPONENT
-// ============================================
-
 export default async function CityPage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;
     const site = getCityByCleanSlug(resolvedParams.slug);
@@ -80,7 +69,6 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         return notFound();
     }
 
-    // pSEO Generation
     const pseo = await getPseoContent(site);
 
     return (
@@ -89,7 +77,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 isHub={true}
                 city={site.city}
                 phoneNumber={site.phoneNumber}
-                variant="default" // Force Light Default
+                variant="default"
                 themeColor="amber"
             />
 
@@ -109,11 +97,10 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                                 dangerouslySetInnerHTML={{ __html: pseo.hero_title }}
                             />
                             <div
-                                className="text-lg text-slate-600 mb-8 leading-relaxed prose prose-lg prose-rose"
+                                className="text-lg text-slate-600 mb-8 leading-relaxed prose prose-lg"
                                 dangerouslySetInnerHTML={{ __html: pseo.intro_html }}
                             />
                             
-                            {/* Local Expert Tip */}
                             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-8 flex gap-3">
                                 <Award className="text-amber-600 shrink-0 mt-1" />
                                 <p className="text-sm text-slate-700 italic">
@@ -139,7 +126,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                             <Image
                                 src={site.heroImage}
-                                alt={`Installation pompes à chaleur ${site.city}`}
+                                alt={`Photovoltaikanlage ${site.city}`}
                                 fill
                                 className="object-cover"
                             />
@@ -152,13 +139,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto bg-white p-8 rounded-3xl shadow-xl">
                         <div className="text-center mb-10">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Kostenlose Analyse in 2 Min.</h2>
-                            <p className="text-slate-600">Estimation immédiate de vos aides et du coût d&apos;installation</p>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Kostenloses Angebot in 2 Min.</h2>
+                            <p className="text-slate-600">Sofortige Schätzung der Kosten und Einsparungen</p>
                         </div>
                         <LeadForm
                             city={site.city}
                             domain="solarexperte.ch"
-                            targetType="MIXED"
+                            targetType="SOLAR"
                             themeColor="amber"
                         />
                     </div>
@@ -166,6 +153,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </section>
 
             <Reviews site={site} themeColor="amber" />
+            <RealizationsGrid />
             <LocalFAQ site={site} segment="B2C" />
             <VillesVoisines currentCitySlug={slugify(site.city)} department={site.department || ""} cityName={site.city} />
             <InternalMesh city={site.city} config={site} />

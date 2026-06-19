@@ -8,10 +8,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-import { getCurrentYearSEO } from "@/lib/date";
 import StructuredData from "@/components/seo/StructuredData";
 import AttributionTracker from "@/components/AttributionTracker";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
@@ -21,10 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: {
-      template: "%s | Solar Experte 2026",
-      default: "Solar Experte - Photovoltaikanlagen in der Schweiz 2026",
+      template: `%s | Solar Experte`,
+      default: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
     },
-    description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten.",
+    description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: `${baseUrl}${path}`,
@@ -41,8 +39,8 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: "Solar Experte - Photovoltaikanlagen Schweiz",
-      description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten und sichern Sie sich die Pronovo Einmalvergütung.",
+      title: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
+      description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
       siteName: "Solar Experte",
       locale: "de_CH",
       type: "website",
@@ -52,14 +50,14 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${baseUrl}/images/og-image.png`,
           width: 1200,
           height: 630,
-          alt: "Solar Experte - Photovoltaikanlagen in der Schweiz",
+          alt: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Solar Experte - Photovoltaikanlagen Schweiz",
-      description: "Vergleichen Sie die besten Solar-Fachpartner für Photovoltaik in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten und sichern Sie sich die Pronovo Einmalvergütung.",
+      title: "Solar Experte - Photovoltaik & Solaranlagen Schweiz",
+      description: "Vergleichen Sie die besten Solar-Installateure in der Schweiz. Erhalten Sie bis zu 3 kostenlose Offerten, sparen Sie Steuern und sichern Sie sich die Pronovo Einmalvergütung.",
       images: [`${baseUrl}/images/og-image.png`],
     },
     icons: {
@@ -77,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#d97706",
+  themeColor: "#f59e0b",
 };
 
 export default function RootLayout({
@@ -100,12 +98,7 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager */}
       </head>
-      <body
-        className={`${inter.variable} font-sans antialiased bg-neutral-900 text-neutral-50`}
-      >
-        <StructuredData />
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-20JN53SLCP" />
-        <AttributionTracker />
+      <body className={`${inter.variable} antialiased bg-white text-slate-900`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -113,9 +106,11 @@ export default function RootLayout({
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
+          />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <AttributionTracker />
+        <StructuredData />
         {children}
       </body>
     </html>

@@ -4,29 +4,26 @@ export default function StructuredData() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Wärmepumpe Experte",
-        "url": "https://www.expertwaermepumpe.de",
-        "logo": "https://www.expertwaermepumpe.de/logo.png",
-        "description": "Réseau national d'installateurs de pompes à chaleur pour particuliers et professionnels. Installateurs certifiés RGE QualiPAC.",
-        "sameAs": [
-            "https://www.facebook.com/expertwaermepumpe",
-            "https://www.instagram.com/expertwaermepumpe"
-        ],
+        "name": "Solar Experte",
+        "url": "https://www.solarexperte.ch",
+        "logo": "https://www.solarexperte.ch/logo.png",
+        "description": "Nationales Netzwerk von Fachpartnern für die Installation von Photovoltaikanlagen und Solarmodulen in der Schweiz.",
+        "sameAs": [],
         "foundingDate": "2020",
         "address": {
             "@type": "PostalAddress",
-            "addressCountry": "FR"
+            "addressCountry": "CH"
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+33 1 84 80 00 00",
+            "telephone": "044 500 00 00",
             "contactType": "customer service",
-            "areaServed": "FR",
-            "availableLanguage": "French"
+            "areaServed": "CH",
+            "availableLanguage": "German"
         },
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.expertwaermepumpe.de/ville/{search_term_string}",
+            "target": "https://www.solarexperte.ch/ville/{search_term_string}",
             "query-input": "required name=search_term_string"
         }
     };
@@ -34,11 +31,11 @@ export default function StructuredData() {
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "url": "https://www.expertwaermepumpe.de",
-        "name": "expertwaermepumpe",
+        "url": "https://www.solarexperte.ch",
+        "name": "solarexperte",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.expertwaermepumpe.de/ville/{search_term_string}",
+            "target": "https://www.solarexperte.ch/ville/{search_term_string}",
             "query-input": "required name=search_term_string"
         }
     };
@@ -46,9 +43,9 @@ export default function StructuredData() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Installation et Dépannage",
-        "provider": { "@type": "Organization", "name": "expertwaermepumpe" },
-        "areaServed": { "@type": "Country", "name": "France" }
+        "serviceType": "Solarinstallation",
+        "provider": { "@type": "Organization", "name": "solarexperte" },
+        "areaServed": { "@type": "Country", "name": "Schweiz" }
     };
 
     return (

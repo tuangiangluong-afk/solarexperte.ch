@@ -14,6 +14,8 @@ export interface CityConfig {
     email: string;
     heroImage: string;
     description: string;
+    unique_intro?: string;
+    unique_expert_tip?: string;
     meta: {
         title: string;
         description: string;

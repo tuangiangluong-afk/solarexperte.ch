@@ -1,3 +1,4 @@
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 import { getCityByCleanSlug, CITIES } from "@/lib/db";
 import { getPseoContent } from "@/lib/pseo";
 import { CheckCircle, Award } from "lucide-react";
@@ -158,6 +159,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             <VillesVoisines currentCitySlug={slugify(site.city)} department={site.department || ""} cityName={site.city} />
             <InternalMesh city={site.city} config={site} />
             <Footer config={site} />
+            <MobileStickyCTA themeColor="amber" />
         </div>
     );
 }

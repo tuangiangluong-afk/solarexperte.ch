@@ -1,3 +1,4 @@
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 import { getHubConfig } from "@/lib/sites-config";
 import { NATIONAL_TARGETS } from "@/config/national-targets";
 import { Zap, Award, ArrowRight, Home, CheckCircle } from "lucide-react";
@@ -94,6 +95,7 @@ export default function HomePage() {
 
             <FAQSection />
             <Footer config={hub} />
+            <MobileStickyCTA themeColor="amber" />
         </div>
     );
 }

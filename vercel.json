@@ -3,19 +3,6 @@
     "framework": "nextjs",
     "cleanUrls": true,
     "trailingSlash": false,
-    "redirects": [
-        {
-            "source": "/:path((?!api/).*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "www.solarexperte.ch"
-                }
-            ],
-            "destination": "https://solarexperte.ch/:path",
-            "statusCode": 301
-        }
-    ],
     "crons": [
         {
             "path": "/api/indexnow",
